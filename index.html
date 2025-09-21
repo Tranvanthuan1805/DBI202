@@ -178,26 +178,96 @@
         border-radius: 8px;
       }
       .code-block {
-        background: #111827;
-        color: #e5e7eb;
-        padding: 14px;
-        border-radius: 10px;
-        font-family: "Courier New", monospace;
-        font-size: 13px;
+        background: #f8f9fa;
+        color: #2d3748;
+        padding: 20px;
+        border-radius: 12px;
+        font-family: "Consolas", "Monaco", "Courier New", monospace;
+        font-size: 14px;
+        line-height: 1.8;
         overflow-x: auto;
         position: relative;
-        margin: 10px 0;
+        margin: 15px 0;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+        white-space: pre-line;
       }
       .code-block::before {
         content: "SQL";
         position: absolute;
-        top: 6px;
-        right: 10px;
-        background: var(--indigo);
+        top: 8px;
+        right: 12px;
+        background: linear-gradient(135deg, var(--indigo), var(--purple));
         color: #fff;
-        border-radius: 4px;
-        font-size: 11px;
-        padding: 2px 6px;
+        border-radius: 6px;
+        font-size: 12px;
+        padding: 4px 8px;
+        font-weight: 600;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Enhanced SQL Syntax Highlighting */
+      .code-block .keyword {
+        color: #0066cc;
+        font-weight: bold;
+      }
+      .code-block .string {
+        color: #22863a;
+        font-weight: 500;
+      }
+      .code-block .number {
+        color: #e36209;
+        font-weight: 500;
+      }
+      .code-block .comment {
+        color: #6a737d;
+        font-style: italic;
+        opacity: 0.8;
+        font-size: 13px;
+      }
+      .code-block .function {
+        color: #6f42c1;
+        font-weight: 600;
+      }
+      .code-block .datatype {
+        color: #d73a49;
+        font-weight: 600;
+      }
+      .code-block .operator {
+        color: #005cc5;
+        font-weight: 500;
+      }
+      .code-block .table {
+        color: #032f62;
+        font-weight: 500;
+      }
+      .code-block .column {
+        color: #24292e;
+      }
+
+      /* Legacy classes for compatibility */
+      .sql-keyword {
+        color: #0066cc;
+        font-weight: bold;
+      }
+      .sql-string {
+        color: #22863a;
+      }
+      .sql-comment {
+        color: #6a737d;
+        font-style: italic;
+      }
+      .sql-number {
+        color: #e36209;
+      }
+      .sql-function {
+      .sql-function {
+        color: #800080;
+        font-weight: bold;
+      }
+      .sql-operator {
+        color: #ff0000;
+        font-weight: bold;
       }
       .example,
       .info-box,
@@ -231,24 +301,160 @@
       table {
         width: 100%;
         border-collapse: collapse;
-        margin: 12px 0;
+        margin: 20px 0;
         background: #fff;
-        border-radius: 10px;
+        border-radius: 12px;
         overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        border: 1px solid #e2e8f0;
       }
-      th,
-      td {
-        padding: 10px 12px;
-        text-align: left;
-        border-bottom: 1px solid #e5e7eb;
+
+      thead {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       }
+
       th {
-        background: linear-gradient(135deg, var(--indigo), var(--purple));
+        padding: 16px 20px;
+        text-align: left;
         color: #fff;
+        font-weight: 600;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border-bottom: none;
+        position: relative;
       }
-      tr:hover {
-        background: #f9fafb;
+
+      th:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 25%;
+        height: 50%;
+        width: 1px;
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      td {
+        padding: 14px 20px;
+        text-align: left;
+        border-bottom: 1px solid #f1f5f9;
+        color: #334155;
+        font-size: 14px;
+        line-height: 1.5;
+        vertical-align: top;
+      }
+
+      tbody tr {
+        transition: all 0.2s ease;
+      }
+
+      tbody tr:hover {
+        background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      tbody tr:nth-child(even) {
+        background: #f8fafc;
+      }
+
+      tbody tr:nth-child(even):hover {
+        background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+      }
+
+      tbody tr:last-child td {
+        border-bottom: none;
+      }
+
+      /* Table content styling */
+      table td b {
+        color: #1e293b;
+        font-weight: 600;
+      }
+
+      table td code {
+        background: #f1f5f9;
+        color: #e11d48;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 13px;
+        font-family: "Consolas", "Monaco", monospace;
+      }
+
+      /* Special table types */
+      .datatype-table {
+        margin: 25px 0;
+      }
+
+      .datatype-table th {
+        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        font-size: 13px;
+      }
+
+      .comparison-table {
+        margin: 25px 0;
+      }
+
+      .comparison-table th {
+        background: linear-gradient(135deg, #059669 0%, #0d9488 100%);
+        font-size: 13px;
+      }
+
+      .features-table {
+        margin: 25px 0;
+      }
+
+      .features-table th {
+        background: linear-gradient(135deg, #dc2626 0%, #ea580c 100%);
+        font-size: 13px;
+      }
+
+      /* Status indicators in tables */
+      .status-yes {
+        color: #059669;
+        font-weight: 600;
+      }
+
+      .status-no {
+        color: #dc2626;
+        font-weight: 600;
+      }
+
+      .status-partial {
+        color: #d97706;
+        font-weight: 600;
+      }
+
+      /* Table badges */
+      .table-badge {
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: 12px;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .badge-high {
+        background: #dcfce7;
+        color: #166534;
+      }
+
+      .badge-medium {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .badge-low {
+        background: #fee2e2;
+        color: #991b1b;
+      }
+
+      .badge-feature {
+        background: #e0e7ff;
+        color: #3730a3;
       }
       .back-to-top {
         position: fixed;
@@ -412,7 +618,7 @@
             <h3>� 1. KIỂU SỐ (NUMERIC TYPES)</h3>
 
             <h3>Số nguyên (Integer Types)</h3>
-            <table>
+            <table class="datatype-table">
               <thead>
                 <tr>
                   <th>Kiểu dữ liệu</th>
@@ -425,19 +631,19 @@
                 <tr>
                   <td><b>TINYINT</b></td>
                   <td>0 đến 255</td>
-                  <td>1 byte</td>
+                  <td><span class="table-badge badge-high">1 byte</span></td>
                   <td>Tuổi, tháng, trạng thái</td>
                 </tr>
                 <tr>
                   <td><b>SMALLINT</b></td>
                   <td>-32,768 đến 32,767</td>
-                  <td>2 bytes</td>
+                  <td><span class="table-badge badge-high">2 bytes</span></td>
                   <td>Số lượng nhỏ, năm</td>
                 </tr>
                 <tr>
                   <td><b>INT</b></td>
                   <td>-2,147,483,648 đến 2,147,483,647</td>
-                  <td>4 bytes</td>
+                  <td><span class="table-badge badge-medium">4 bytes</span></td>
                   <td>ID, số lượng thông thường</td>
                 </tr>
                 <tr>
@@ -445,7 +651,7 @@
                   <td>
                     -9,223,372,036,854,775,808 đến 9,223,372,036,854,775,807
                   </td>
-                  <td>8 bytes</td>
+                  <td><span class="table-badge badge-low">8 bytes</span></td>
                   <td>ID lớn, timestamp</td>
                 </tr>
               </tbody>
@@ -454,17 +660,30 @@
             <div class="example">
               <h4>Ví dụ thực tế:</h4>
               <div class="code-block">
-                CREATE TABLE SanPham ( ID INT, -- ID sản phẩm (dùng INT)
-                SoLuongTon SMALLINT, -- Số lượng tồn kho (dùng SMALLINT vì ít
-                khi > 32,000) TrangThai TINYINT, -- 0=Hết hàng, 1=Còn hàng,
-                2=Ngừng bán (dùng TINYINT) ViewCount BIGINT -- Số lượt xem (có
-                thể rất lớn, dùng BIGINT) ); INSERT INTO SanPham VALUES (1001,
-                150, 1, 2500000);
+                <span class="keyword">CREATE TABLE</span>
+                <span class="table">SanPham</span> (
+                <span class="column">ID</span>
+                <span class="datatype">INT</span>,
+                <span class="column">SoLuongTon</span>
+                <span class="datatype">SMALLINT</span>,
+                <span class="column">TrangThai</span>
+                <span class="datatype">TINYINT</span>,
+                <span class="column">ViewCount</span>
+                <span class="datatype">BIGINT</span>
+                );
+
+                <span class="keyword">INSERT INTO</span>
+                <span class="table">SanPham</span>
+                <span class="keyword">VALUES</span> (<span class="number"
+                  >1001</span
+                >, <span class="number">150</span>,
+                <span class="number">1</span>,
+                <span class="number">2500000</span>);
               </div>
             </div>
 
             <h3>💰 Số thập phân (Decimal Types)</h3>
-            <table>
+            <table class="datatype-table">
               <thead>
                 <tr>
                   <th>Kiểu dữ liệu</th>
@@ -477,25 +696,25 @@
                 <tr>
                   <td><b>DECIMAL(p,s)</b></td>
                   <td>Số thập phân chính xác</td>
-                  <td>Cao</td>
+                  <td><span class="status-yes">Cao</span></td>
                   <td>Tiền tệ, tỷ lệ chính xác</td>
                 </tr>
                 <tr>
                   <td><b>NUMERIC(p,s)</b></td>
                   <td>Giống DECIMAL</td>
-                  <td>Cao</td>
+                  <td><span class="status-yes">Cao</span></td>
                   <td>Tính toán tài chính</td>
                 </tr>
                 <tr>
                   <td><b>FLOAT</b></td>
                   <td>Số thực dấu phẩy động</td>
-                  <td>Thấp</td>
+                  <td><span class="status-no">Thấp</span></td>
                   <td>Tính toán khoa học</td>
                 </tr>
                 <tr>
                   <td><b>REAL</b></td>
                   <td>Số thực độ chính xác đơn</td>
-                  <td>Trung bình</td>
+                  <td><span class="status-partial">Trung bình</span></td>
                   <td>Tọa độ, measurement</td>
                 </tr>
               </tbody>
@@ -504,14 +723,51 @@
             <div class="example">
               <h4>Ví dụ chi tiết:</h4>
               <div class="code-block">
-                CREATE TABLE DonHang ( ID INT, Gia DECIMAL(10,2), -- 10 chữ số
-                tổng, 2 chữ số sau phẩy (99,999,999.99) ThueVAT DECIMAL(5,4), --
-                Thuế 10.5% = 0.1050 KhoiLuong FLOAT, -- Khối lượng có thể có
-                nhiều chữ số thập phân TyLeGiamGia REAL -- Tỷ lệ giảm giá );
-                INSERT INTO DonHang VALUES (1, 1299000.50, 0.1000, 2.756891,
-                0.15), (2, 850000.00, 0.0800, 1.234567, 0.20); -- Ví dụ tính
-                toán SELECT ID, Gia, Gia * ThueVAT as TienThue, Gia * (1 +
-                ThueVAT) as GiaSauThue FROM DonHang;
+                <span class="keyword">CREATE TABLE</span>
+                <span class="table">DonHang</span> (
+                <span class="column">ID</span>
+                <span class="datatype">INT</span>,
+                <span class="column">Gia</span>
+                <span class="datatype">DECIMAL</span>(<span class="number"
+                  >10</span
+                >,<span class="number">2</span>),
+                <span class="column">ThueVAT</span>
+                <span class="datatype">DECIMAL</span>(<span class="number"
+                  >5</span
+                >,<span class="number">4</span>),
+                <span class="column">KhoiLuong</span>
+                <span class="datatype">FLOAT</span>,
+                <span class="column">TyLeGiamGia</span>
+                <span class="datatype">REAL</span>
+                );
+
+                <span class="keyword">INSERT INTO</span>
+                <span class="table">DonHang</span>
+                <span class="keyword">VALUES</span> (<span class="number"
+                  >1</span
+                >, <span class="number">1299000.50</span>,
+                <span class="number">0.1000</span>,
+                <span class="number">2.756891</span>,
+                <span class="number">0.15</span>), (<span class="number">2</span
+                >, <span class="number">850000.00</span>,
+                <span class="number">0.0800</span>,
+                <span class="number">1.234567</span>,
+                <span class="number">0.20</span>);
+
+                <span class="keyword">SELECT</span>
+                <span class="column">ID</span>, <span class="column">Gia</span>,
+                <span class="column">Gia</span> <span class="operator">*</span>
+                <span class="column">ThueVAT</span>
+                <span class="keyword">AS</span>
+                <span class="column">TienThue</span>,
+                <span class="column">Gia</span>
+                <span class="operator">*</span> (<span class="number">1</span>
+                <span class="operator">+</span>
+                <span class="column">ThueVAT</span>)
+                <span class="keyword">AS</span>
+                <span class="column">GiaSauThue</span>
+                <span class="keyword">FROM</span>
+                <span class="table">DonHang</span>;
               </div>
             </div>
 
@@ -526,7 +782,7 @@
             </div>
 
             <h3>📝 2. KIỂU CHUỖI (STRING TYPES)</h3>
-            <table>
+            <table class="comparison-table">
               <thead>
                 <tr>
                   <th>Kiểu</th>
@@ -539,13 +795,17 @@
                 <tr>
                   <td><b>CHAR(n)</b></td>
                   <td>Độ dài cố định</td>
-                  <td>n bytes</td>
+                  <td><span class="table-badge badge-low">n bytes</span></td>
                   <td>Mã code cố định</td>
                 </tr>
                 <tr>
                   <td><b>VARCHAR(n)</b></td>
                   <td>Độ dài thay đổi</td>
-                  <td>Thực tế + 2 bytes</td>
+                  <td>
+                    <span class="table-badge badge-high"
+                      >Thực tế + 2 bytes</span
+                    >
+                  </td>
                   <td>Tên, mô tả</td>
                 </tr>
                 <tr>
@@ -572,31 +832,72 @@
             <div class="example">
               <h4>Ví dụ so sánh CHAR vs VARCHAR:</h4>
               <div class="code-block">
-                CREATE TABLE Demo ( MaKH CHAR(10), -- Luôn 10 ký tự TenKH
-                VARCHAR(50), -- Tối đa 50 ký tự, lưu theo độ dài thực GhiChu
-                TEXT -- Không giới hạn độ dài ); INSERT INTO Demo VALUES ('KH001
-                ', 'Nguyễn Văn An', 'Khách hàng VIP từ năm 2020'), ('KH002 ',
-                'Trần Thị Bình', 'Khách hàng thường xuyên mua hàng'); -- Kiểm
-                tra độ dài SELECT MaKH, LEN(MaKH) as DoDaiMaKH, -- Kết quả: 10
-                (luôn luôn) TenKH, LEN(TenKH) as DoDaiTenKH -- Kết quả: 13, 14
-                (theo thực tế) FROM Demo;
+                <span class="keyword">CREATE TABLE</span>
+                <span class="table">Demo</span> (
+                <span class="column">MaKH</span>
+                <span class="datatype">CHAR</span>(<span class="number">10</span
+                >), <span class="column">TenKH</span>
+                <span class="datatype">VARCHAR</span>(<span class="number"
+                  >50</span
+                >), <span class="column">GhiChu</span>
+                <span class="datatype">TEXT</span>
+                );
+
+                <span class="keyword">INSERT INTO</span>
+                <span class="table">Demo</span>
+                <span class="keyword">VALUES</span> (<span class="string"
+                  >'KH001'</span
+                >, <span class="string">'Nguyễn Văn An'</span>,
+                <span class="string">'Khách hàng VIP từ năm 2020'</span>),
+                (<span class="string">'KH002'</span>,
+                <span class="string">'Trần Thị Bình'</span>,
+                <span class="string">'Khách hàng thường xuyên mua hàng'</span>);
+
+                <span class="keyword">SELECT</span>
+                <span class="column">MaKH</span>,
+                <span class="function">LEN</span>(<span class="column"
+                  >MaKH</span
+                >) <span class="keyword">AS</span>
+                <span class="column">DoDaiMaKH</span>,
+                <span class="column">TenKH</span>,
+                <span class="function">LEN</span>(<span class="column"
+                  >TenKH</span
+                >) <span class="keyword">AS</span>
+                <span class="column">DoDaiTenKH</span>
+                <span class="keyword">FROM</span>
+                <span class="table">Demo</span>;
               </div>
             </div>
 
             <div class="info-box">
               <h4>🌏 Unicode cho tiếng Việt:</h4>
               <div class="code-block">
-                CREATE TABLE KhachHang ( ID INT, TenKH NVARCHAR(100), -- Dùng
-                NVARCHAR cho tiếng Việt có dấu DiaChi NVARCHAR(200), GhiChu
-                NTEXT -- NTEXT cho văn bản Unicode dài ); INSERT INTO KhachHang
-                VALUES (1, N'Nguyễn Văn Ánh', N'123 Đường Lê Lợi, Quận 1,
-                TP.HCM', N'Khách hàng có uy tín cao'); -- Lưu ý: Dùng N'...'
-                trước chuỗi Unicode
+                <span class="keyword">CREATE TABLE</span>
+                <span class="table">KhachHang</span> (
+                <span class="column">ID</span>
+                <span class="datatype">INT</span>,
+                <span class="column">TenKH</span>
+                <span class="datatype">NVARCHAR</span>(<span class="number"
+                  >100</span
+                >), <span class="column">DiaChi</span>
+                <span class="datatype">NVARCHAR</span>(<span class="number"
+                  >200</span
+                >), <span class="column">GhiChu</span>
+                <span class="datatype">NTEXT</span>
+                );
+
+                <span class="keyword">INSERT INTO</span>
+                <span class="table">KhachHang</span>
+                <span class="keyword">VALUES</span> (<span class="number"
+                  >1</span
+                >, <span class="string">N'Nguyễn Văn Ánh'</span>,
+                <span class="string">N'123 Đường Lê Lợi, Quận 1, TP.HCM'</span>,
+                <span class="string">N'Khách hàng có uy tín cao'</span>);
               </div>
             </div>
 
             <h3>📅 3. KIỂU NGÀY THÁNG (DATE/TIME TYPES)</h3>
-            <table>
+            <table class="datatype-table">
               <thead>
                 <tr>
                   <th>Kiểu</th>
@@ -609,14 +910,16 @@
                 <tr>
                   <td><b>DATE</b></td>
                   <td>0001-01-01 đến 9999-12-31</td>
-                  <td>YYYY-MM-DD</td>
-                  <td>Ngày</td>
+                  <td><code>YYYY-MM-DD</code></td>
+                  <td><span class="table-badge badge-feature">Ngày</span></td>
                 </tr>
                 <tr>
                   <td><b>TIME</b></td>
                   <td>00:00:00.0000000 đến 23:59:59.9999999</td>
-                  <td>HH:MM:SS</td>
-                  <td>Thời gian</td>
+                  <td><code>HH:MM:SS</code></td>
+                  <td>
+                    <span class="table-badge badge-feature">Thời gian</span>
+                  </td>
                 </tr>
                 <tr>
                   <td><b>DATETIME</b></td>
@@ -644,29 +947,107 @@
               <div class="code-block">
                 CREATE TABLE LichSuGiaoDich ( ID INT, NgayGiaoDich DATE, -- Chỉ
                 cần ngày GioGiaoDich TIME, -- Chỉ cần giờ ThoiDiemDayDu
-                DATETIME2, -- Cần cả ngày và giờ chính xác NgayTao DATETIME
-                DEFAULT GETDATE(), -- Tự động lấy thời gian hiện tại LastUpdate
-                TIMESTAMP -- Tự động cập nhật khi có thay đổi ); INSERT INTO
-                LichSuGiaoDich (ID, NgayGiaoDich, GioGiaoDich, ThoiDiemDayDu)
-                VALUES (1, '2023-12-01', '14:30:00', '2023-12-01
-                14:30:25.1234567'); -- Các hàm xử lý ngày tháng SELECT GETDATE()
-                as NgayHienTai, YEAR(NgayGiaoDich) as Nam, MONTH(NgayGiaoDich)
-                as Thang, DAY(NgayGiaoDich) as Ngay, DATENAME(WEEKDAY,
-                NgayGiaoDich) as ThuMay, DATEDIFF(DAY, NgayGiaoDich, GETDATE())
-                as SoNgayTruoc FROM LichSuGiaoDich;
+                <span class="column">NgayGiaoDich</span>
+                <span class="datatype">DATE</span>,
+                <span class="column">GioGiaoDich</span>
+                <span class="datatype">TIME</span>,
+                <span class="column">ThoiDiemDayDu</span>
+                <span class="datatype">DATETIME2</span>,
+                <span class="column">NgayTao</span>
+                <span class="datatype">DATETIME</span>
+                <span class="keyword">DEFAULT</span>
+                <span class="function">GETDATE</span>(),
+                <span class="column">LastUpdate</span>
+                <span class="datatype">TIMESTAMP</span>
+                );
+
+                <span class="keyword">INSERT INTO</span>
+                <span class="table">LichSuGiaoDich</span> (<span class="column"
+                  >ID</span
+                >, <span class="column">NgayGiaoDich</span>,
+                <span class="column">GioGiaoDich</span>,
+                <span class="column">ThoiDiemDayDu</span>)
+                <span class="keyword">VALUES</span>
+                (<span class="number">1</span>,
+                <span class="string">'2023-12-01'</span>,
+                <span class="string">'14:30:00'</span>,
+                <span class="string">'2023-12-01 14:30:25.1234567'</span>);
+
+                <span class="keyword">SELECT</span>
+                <span class="function">GETDATE</span>()
+                <span class="keyword">AS</span>
+                <span class="column">NgayHienTai</span>,
+                <span class="function">YEAR</span>(<span class="column"
+                  >NgayGiaoDich</span
+                >) <span class="keyword">AS</span>
+                <span class="column">Nam</span>,
+                <span class="function">MONTH</span>(<span class="column"
+                  >NgayGiaoDich</span
+                >) <span class="keyword">AS</span>
+                <span class="column">Thang</span>,
+                <span class="function">DAY</span>(<span class="column"
+                  >NgayGiaoDich</span
+                >) <span class="keyword">AS</span>
+                <span class="column">Ngay</span>,
+                <span class="function">DATENAME</span>(<span class="keyword"
+                  >WEEKDAY</span
+                >, <span class="column">NgayGiaoDich</span>)
+                <span class="keyword">AS</span>
+                <span class="column">ThuMay</span>,
+                <span class="function">DATEDIFF</span>(<span class="keyword"
+                  >DAY</span
+                >, <span class="column">NgayGiaoDich</span>,
+                <span class="function">GETDATE</span>())
+                <span class="keyword">AS</span>
+                <span class="column">SoNgayTruoc</span>
+                <span class="keyword">FROM</span>
+                <span class="table">LichSuGiaoDich</span>;
               </div>
             </div>
 
             <div class="success-box">
               <h4>🕒 Ví dụ tính toán thời gian:</h4>
               <div class="code-block">
-                -- Thêm/trừ thời gian SELECT GETDATE() as HienTai, DATEADD(DAY,
-                7, GETDATE()) as Sau7Ngay, DATEADD(MONTH, -3, GETDATE()) as
-                Truoc3Thang, DATEADD(YEAR, 1, GETDATE()) as SangNam; -- Định
-                dạng ngày tháng SELECT CONVERT(VARCHAR(10), GETDATE(), 103) as
-                DD_MM_YYYY, -- 01/12/2023 CONVERT(VARCHAR(10), GETDATE(), 101)
-                as MM_DD_YYYY, -- 12/01/2023 FORMAT(GETDATE(), 'dd/MM/yyyy') as
-                DinhDangVN; -- 01/12/2023
+                <span class="keyword">SELECT</span>
+                <span class="function">GETDATE</span>()
+                <span class="keyword">AS</span>
+                <span class="column">HienTai</span>,
+                <span class="function">DATEADD</span>(<span class="keyword"
+                  >DAY</span
+                >, <span class="number">7</span>,
+                <span class="function">GETDATE</span>())
+                <span class="keyword">AS</span>
+                <span class="column">Sau7Ngay</span>,
+                <span class="function">DATEADD</span>(<span class="keyword"
+                  >MONTH</span
+                >, <span class="number">-3</span>,
+                <span class="function">GETDATE</span>())
+                <span class="keyword">AS</span>
+                <span class="column">Truoc3Thang</span>,
+                <span class="function">DATEADD</span>(<span class="keyword"
+                  >YEAR</span
+                >, <span class="number">1</span>,
+                <span class="function">GETDATE</span>())
+                <span class="keyword">AS</span>
+                <span class="column">SangNam</span>;
+
+                <span class="keyword">SELECT</span>
+                <span class="function">CONVERT</span>(<span class="datatype"
+                  >VARCHAR</span
+                >(<span class="number">10</span>),
+                <span class="function">GETDATE</span>(),
+                <span class="number">103</span>)
+                <span class="keyword">AS</span>
+                <span class="column">DD_MM_YYYY</span>,
+                <span class="function">CONVERT</span>(<span class="datatype"
+                  >VARCHAR</span
+                >(<span class="number">10</span>),
+                <span class="function">GETDATE</span>(),
+                <span class="number">101</span>)
+                <span class="keyword">AS</span>
+                <span class="column">MM_DD_YYYY</span>; as MM_DD_YYYY, --
+                12/01/2023 FORMAT(GETDATE(), 'dd/MM/yyyy') as DinhDangVN; --
+                01/12/2023
               </div>
             </div>
 
@@ -855,7 +1236,7 @@
             </div>
 
             <h3>📊 Tóm tắt sự khác biệt</h3>
-            <table>
+            <table class="comparison-table">
               <thead>
                 <tr>
                   <th>Đặc điểm</th>
@@ -866,8 +1247,12 @@
               <tbody>
                 <tr>
                   <td><b>Độ dài</b></td>
-                  <td>Cố định</td>
-                  <td>Thay đổi</td>
+                  <td>
+                    <span class="table-badge badge-warning">Cố định</span>
+                  </td>
+                  <td>
+                    <span class="table-badge badge-feature">Thay đổi</span>
+                  </td>
                 </tr>
                 <tr>
                   <td><b>Dung lượng</b></td>
@@ -879,13 +1264,15 @@
                 </tr>
                 <tr>
                   <td><b>Tốc độ</b></td>
-                  <td>Nhanh hơn</td>
-                  <td>Chậm hơn một chút</td>
+                  <td><span class="status-yes">Nhanh hơn</span></td>
+                  <td><span class="status-partial">Chậm hơn một chút</span></td>
                 </tr>
                 <tr>
                   <td><b>Tiết kiệm không gian</b></td>
-                  <td>Không hiệu quả (lãng phí)</td>
-                  <td>Rất hiệu quả</td>
+                  <td>
+                    <span class="status-no">Không hiệu quả (lãng phí)</span>
+                  </td>
+                  <td><span class="status-yes">Rất hiệu quả</span></td>
                 </tr>
                 <tr>
                   <td><b>Sử dụng phù hợp</b></td>
@@ -899,11 +1286,22 @@
               <h4>Ví dụ tổng hợp:</h4>
               <p>Giả sử bạn có một bảng <code>users</code> (người dùng).</p>
               <div class="code-block">
-                CREATE TABLE users ( id INT, first_name VARCHAR(50), -- Tên có
-                độ dài thay đổi last_name VARCHAR(50), -- Tên có độ dài thay đổi
-                country_code CHAR(2), -- Mã quốc gia (ví dụ: 'VN', 'US') có độ
-                dài cố định là 2 phone_number VARCHAR(15) -- Số điện thoại có độ
-                dài thay đổi );
+                <span class="keyword">CREATE TABLE</span>
+                <span class="table">users</span> (
+                <span class="column">id</span>
+                <span class="datatype">INT</span>,
+                <span class="column">first_name</span>
+                <span class="datatype">VARCHAR</span>(<span class="number"
+                  >50</span
+                >), <span class="column">last_name</span>
+                <span class="datatype">VARCHAR</span>(<span class="number"
+                  >50</span
+                >), <span class="column">country_code</span>
+                <span class="datatype">CHAR</span>(<span class="number">2</span
+                >), <span class="column">phone_number</span>
+                <span class="datatype">VARCHAR</span>(<span class="number"
+                  >15</span
+                >) );
               </div>
               <p><b>Trong ví dụ trên:</b></p>
               <ul>
@@ -996,10 +1394,11 @@
 
               <h5><b>Định dạng ngày tháng:</b></h5>
               <div class="code-block">
-                -- Sử dụng CONVERT để hiển thị ngày tháng theo định dạng
-                dd/MM/yyyy SELECT CONVERT(VARCHAR, GETDATE(), 103); -- Kết quả:
-                '21/09/2025' (hàm GETDATE() trả về ngày giờ hiện tại, sau đó
-                được định dạng lại)
+                <span class="keyword">SELECT</span>
+                <span class="function">CONVERT</span>(<span class="datatype"
+                  >VARCHAR</span
+                >, <span class="function">GETDATE</span>(),
+                <span class="number">103</span>);
               </div>
               <p>
                 Số <b>103</b> là một mã định dạng cho biết kiểu dd/MM/yyyy. SQL
@@ -1015,7 +1414,7 @@
             </div>
 
             <h3>📊 Tóm tắt sự khác biệt</h3>
-            <table>
+            <table class="comparison-table">
               <thead>
                 <tr>
                   <th>Đặc điểm</th>
@@ -1026,15 +1425,23 @@
               <tbody>
                 <tr>
                   <td><b>Tính tương thích</b></td>
-                  <td>Hầu hết các hệ quản trị CSDL</td>
-                  <td>Chủ yếu là SQL Server</td>
+                  <td>
+                    <span class="status-yes">Hầu hết các hệ quản trị CSDL</span>
+                  </td>
+                  <td>
+                    <span class="status-partial">Chủ yếu là SQL Server</span>
+                  </td>
                 </tr>
                 <tr>
                   <td><b>Cú pháp</b></td>
-                  <td>Đơn giản: CAST(biểu_thức AS kiểu_dữ_liệu)</td>
                   <td>
-                    Phức tạp hơn: CONVERT(kiểu_dữ_liệu, biểu_thức,
-                    [mã_định_dạng])
+                    Đơn giản: <code>CAST(biểu_thức AS kiểu_dữ_liệu)</code>
+                  </td>
+                  <td>
+                    Phức tạp hơn:
+                    <code
+                      >CONVERT(kiểu_dữ_liệu, biểu_thức, [mã_định_dạng])</code
+                    >
                   </td>
                 </tr>
                 <tr>
@@ -1116,7 +1523,10 @@
 
             <div class="example">
               <h4>Ví dụ:</h4>
-              <div class="code-block">TRUNCATE TABLE orders;</div>
+              <div class="code-block">
+                <span class="keyword">TRUNCATE TABLE</span>
+                <span class="table">orders</span>;
+              </div>
             </div>
 
             <div class="success-box">
@@ -1154,7 +1564,10 @@
 
             <div class="example">
               <h4>Ví dụ:</h4>
-              <div class="code-block">DROP TABLE stocks;</div>
+              <div class="code-block">
+                <span class="keyword">DROP TABLE</span>
+                <span class="table">stocks</span>;
+              </div>
             </div>
 
             <div class="success-box">
@@ -1210,7 +1623,7 @@
             </div>
 
             <h3>📊 Bảng tóm tắt</h3>
-            <table>
+            <table class="comparison-table">
               <thead>
                 <tr>
                   <th>Đặc điểm</th>
@@ -1222,9 +1635,9 @@
               <tbody>
                 <tr>
                   <td><b>Loại lệnh</b></td>
-                  <td>DDL</td>
-                  <td>DDL</td>
-                  <td>DML</td>
+                  <td><span class="table-badge badge-medium">DDL</span></td>
+                  <td><span class="table-badge badge-medium">DDL</span></td>
+                  <td><span class="table-badge badge-feature">DML</span></td>
                 </tr>
                 <tr>
                   <td><b>Phạm vi</b></td>
@@ -1236,15 +1649,23 @@
                 </tr>
                 <tr>
                   <td><b>Tốc độ</b></td>
-                  <td>Rất nhanh</td>
-                  <td>Nhanh</td>
-                  <td>Chậm hơn, đặc biệt với bảng lớn</td>
+                  <td><span class="status-yes">Rất nhanh</span></td>
+                  <td><span class="status-yes">Nhanh</span></td>
+                  <td>
+                    <span class="status-no"
+                      >Chậm hơn, đặc biệt với bảng lớn</span
+                    >
+                  </td>
                 </tr>
                 <tr>
                   <td><b>Hoàn tác</b></td>
-                  <td>Không thể (không có rollback)</td>
-                  <td>Không thể (không có rollback)</td>
-                  <td>Có thể (có rollback)</td>
+                  <td>
+                    <span class="status-no">Không thể (không có rollback)</span>
+                  </td>
+                  <td>
+                    <span class="status-no">Không thể (không có rollback)</span>
+                  </td>
+                  <td><span class="status-yes">Có thể (có rollback)</span></td>
                 </tr>
                 <tr>
                   <td><b>Trường hợp sử dụng</b></td>
@@ -1402,7 +1823,7 @@
             </div>
 
             <h3>📊 Bảng tóm tắt sự khác biệt</h3>
-            <table>
+            <table class="comparison-table">
               <thead>
                 <tr>
                   <th>Đặc điểm</th>
@@ -1418,27 +1839,43 @@
                 </tr>
                 <tr>
                   <td><b>Cách sử dụng</b></td>
-                  <td>Tự động tạo giá trị khi chèn dữ liệu</td>
-                  <td>Phải gọi hàm để lấy giá trị tiếp theo</td>
+                  <td>
+                    <span class="table-badge badge-warning"
+                      >Tự động tạo giá trị khi chèn dữ liệu</span
+                    >
+                  </td>
+                  <td>
+                    <span class="table-badge badge-feature"
+                      >Phải gọi hàm để lấy giá trị tiếp theo</span
+                    >
+                  </td>
                 </tr>
                 <tr>
                   <td><b>Tính linh hoạt</b></td>
-                  <td>Kém linh hoạt hơn, chỉ dùng cho một cột duy nhất</td>
                   <td>
-                    Linh hoạt hơn, có thể dùng cho nhiều bảng, lấy giá trị trước
-                    khi chèn
+                    <span class="status-partial"
+                      >Kém linh hoạt hơn, chỉ dùng cho một cột duy nhất</span
+                    >
+                  </td>
+                  <td>
+                    <span class="status-yes"
+                      >Linh hoạt hơn, có thể dùng cho nhiều bảng, lấy giá trị
+                      trước khi chèn</span
+                    >
                   </td>
                 </tr>
                 <tr>
                   <td><b>Vị trí</b></td>
-                  <td>Thuộc tính của cột trong CREATE TABLE</td>
+                  <td>Thuộc tính của cột trong <code>CREATE TABLE</code></td>
                   <td>Đối tượng riêng biệt trong cơ sở dữ liệu</td>
                 </tr>
                 <tr>
                   <td><b>Tính tương thích</b></td>
                   <td>
-                    Hầu hết các hệ quản trị CSDL đều có cơ chế tương tự
-                    (AUTO_INCREMENT trong MySQL)
+                    Hầu hết các hệ quản trị CSDL đều có cơ chế tương tự (<code
+                      >AUTO_INCREMENT</code
+                    >
+                    trong MySQL)
                   </td>
                   <td>Phổ biến trong Oracle, PostgreSQL, và SQL Server</td>
                 </tr>
@@ -1845,7 +2282,7 @@
             </div>
 
             <h3>📊 Tóm tắt so sánh</h3>
-            <table>
+            <table class="comparison-table">
               <thead>
                 <tr>
                   <th>Phương pháp</th>
@@ -1857,18 +2294,40 @@
               <tbody>
                 <tr>
                   <td><b>CREATE TABLE</b></td>
-                  <td>Cấu trúc rõ ràng, đảm bảo tính toàn vẹn ngay từ đầu</td>
-                  <td>Không thể thêm ràng buộc cho bảng đã tồn tại</td>
-                  <td>Khởi tạo bảng mới</td>
+                  <td>
+                    <span class="status-yes"
+                      >Cấu trúc rõ ràng, đảm bảo tính toàn vẹn ngay từ đầu</span
+                    >
+                  </td>
+                  <td>
+                    <span class="status-no"
+                      >Không thể thêm ràng buộc cho bảng đã tồn tại</span
+                    >
+                  </td>
+                  <td>
+                    <span class="table-badge badge-feature"
+                      >Khởi tạo bảng mới</span
+                    >
+                  </td>
                 </tr>
                 <tr>
                   <td><b>ALTER TABLE</b></td>
-                  <td>Linh hoạt, cho phép thay đổi cấu trúc bảng hiện có</td>
                   <td>
-                    Cần cẩn thận, có thể gây lỗi nếu dữ liệu hiện tại không tuân
-                    thủ ràng buộc
+                    <span class="status-yes"
+                      >Linh hoạt, cho phép thay đổi cấu trúc bảng hiện có</span
+                    >
                   </td>
-                  <td>Sửa đổi bảng đã có sẵn</td>
+                  <td>
+                    <span class="status-partial"
+                      >Cần cẩn thận, có thể gây lỗi nếu dữ liệu hiện tại không
+                      tuân thủ ràng buộc</span
+                    >
+                  </td>
+                  <td>
+                    <span class="table-badge badge-warning"
+                      >Sửa đổi bảng đã có sẵn</span
+                    >
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -2709,9 +3168,19 @@
                 hàng, nhưng chỉ quan tâm đến những sản phẩm có giá lớn hơn 100.
               </p>
               <div class="code-block">
-                SELECT store_id, COUNT(product_id) AS total_products FROM stocks
-                WHERE price > 100 -- Lọc từng hàng có giá > 100 trước khi nhóm
-                GROUP BY store_id;
+                <span class="keyword">SELECT</span>
+                <span class="column">store_id</span>,
+                <span class="function">COUNT</span>(<span class="column"
+                  >product_id</span
+                >) <span class="keyword">AS</span>
+                <span class="column">total_products</span>
+                <span class="keyword">FROM</span>
+                <span class="table">stocks</span>
+                <span class="keyword">WHERE</span>
+                <span class="column">price</span>
+                <span class="operator">></span> <span class="number">100</span>
+                <span class="keyword">GROUP BY</span>
+                <span class="column">store_id</span>;
               </div>
               <p>
                 <b>Giải thích:</b> Trong ví dụ này, WHERE sẽ loại bỏ các sản
@@ -5967,18 +6436,55 @@
               <div class="code-block">
                 -- Ví dụ: Tìm tất cả nhân viên dưới quyền của một manager WITH
                 EmployeeHierarchy AS ( -- Anchor: Manager gốc SELECT
-                employee_id, employee_name, manager_id, 1 AS level,
-                CAST(employee_name AS NVARCHAR(1000)) AS hierarchy_path FROM
-                employees WHERE manager_id IS NULL -- Top-level managers UNION
-                ALL -- Recursive part: Tìm nhân viên dưới quyền SELECT
-                e.employee_id, e.employee_name, e.manager_id, eh.level + 1,
-                CAST(eh.hierarchy_path + ' > ' + e.employee_name AS
-                NVARCHAR(1000)) FROM employees e INNER JOIN EmployeeHierarchy eh
-                ON e.manager_id = eh.employee_id WHERE eh.level < 10 -- Giới hạn
-                độ sâu để tránh vòng lặp vô hạn ) SELECT employee_id,
-                employee_name, level, hierarchy_path, REPLICATE(' ', level - 1)
-                + employee_name AS indented_name FROM EmployeeHierarchy ORDER BY
-                hierarchy_path;
+                <span class="keyword">WITH</span> EmployeeHierarchy
+                <span class="keyword">AS</span> (
+                <span class="comment"
+                  >-- Anchor query: Tìm điểm bắt đầu (top managers)</span
+                >
+                <span class="keyword">SELECT</span>
+                employee_id, employee_name, manager_id,
+                <span class="number">1</span>
+                <span class="keyword">AS</span> level,
+                <span class="function">CAST</span>(employee_name
+                <span class="keyword">AS</span>
+                <span class="datatype">NVARCHAR</span>(<span class="number"
+                  >1000</span
+                >)) <span class="keyword">AS</span> hierarchy_path
+                <span class="keyword">FROM</span> employees
+                <span class="keyword">WHERE</span> manager_id
+                <span class="keyword">IS NULL</span>
+                <span class="comment">-- Top-level managers</span>
+
+                <span class="keyword">UNION ALL</span>
+
+                <span class="comment"
+                  >-- Recursive part: Tìm nhân viên dưới quyền</span
+                >
+                <span class="keyword">SELECT</span>
+                e.employee_id, e.employee_name, e.manager_id, eh.level +
+                <span class="number">1</span>,
+                <span class="function">CAST</span>(eh.hierarchy_path +
+                <span class="string">' > '</span> + e.employee_name
+                <span class="keyword">AS</span>
+                <span class="datatype">NVARCHAR</span>(<span class="number"
+                  >1000</span
+                >)) <span class="keyword">FROM</span> employees e
+                <span class="keyword">INNER JOIN</span> EmployeeHierarchy eh
+                <span class="keyword">ON</span> e.manager_id = eh.employee_id
+                <span class="keyword">WHERE</span> eh.level <
+                <span class="number">10</span>
+                <span class="comment"
+                  >-- Giới hạn độ sâu để tránh vòng lặp vô hạn</span
+                >
+                )
+                <span class="keyword">SELECT</span>
+                employee_id, employee_name, level, hierarchy_path,
+                <span class="function">REPLICATE</span>(<span class="string"
+                  >' '</span
+                >, level - <span class="number">1</span>) + employee_name
+                <span class="keyword">AS</span> indented_name
+                <span class="keyword">FROM</span> EmployeeHierarchy
+                <span class="keyword">ORDER BY</span> hierarchy_path;
               </div>
 
               <p><b>Giải thích CTE đệ quy:</b></p>
@@ -6005,41 +6511,125 @@
             <div class="example">
               <h4>Báo cáo tổng hợp sử dụng nhiều CTE:</h4>
               <div class="code-block">
-                -- Phân tích hiệu suất bán hàng tổng thể WITH CategorySales AS (
-                -- Doanh thu theo danh mục SELECT c.category_id,
-                c.category_name, SUM(oi.quantity * oi.list_price) AS
-                category_revenue, COUNT(DISTINCT o.order_id) AS total_orders,
-                AVG(oi.quantity * oi.list_price) AS avg_order_value FROM
-                categories c INNER JOIN products p ON c.category_id =
-                p.category_id INNER JOIN order_items oi ON p.product_id =
-                oi.product_id INNER JOIN orders o ON oi.order_id = o.order_id
-                WHERE o.order_date >= DATEADD(MONTH, -12, GETDATE()) -- 12 tháng
-                gần nhất GROUP BY c.category_id, c.category_name ), TopProducts
-                AS ( -- Top 3 sản phẩm bán chạy trong mỗi danh mục SELECT
-                category_id, product_id, product_name, total_sold, ROW_NUMBER()
-                OVER (PARTITION BY category_id ORDER BY total_sold DESC) AS
-                rank_in_category FROM ( SELECT p.category_id, p.product_id,
-                p.product_name, SUM(oi.quantity) AS total_sold FROM products p
-                INNER JOIN order_items oi ON p.product_id = oi.product_id INNER
-                JOIN orders o ON oi.order_id = o.order_id WHERE o.order_date >=
-                DATEADD(MONTH, -12, GETDATE()) GROUP BY p.category_id,
-                p.product_id, p.product_name ) ProductSales ), QuarterlySales AS
-                ( -- Doanh thu theo quý SELECT YEAR(o.order_date) AS year,
-                CEILING(MONTH(o.order_date) / 3.0) AS quarter, SUM(oi.quantity *
-                oi.list_price) AS quarterly_revenue FROM orders o INNER JOIN
-                order_items oi ON o.order_id = oi.order_id WHERE o.order_date >=
-                DATEADD(MONTH, -12, GETDATE()) GROUP BY YEAR(o.order_date),
-                CEILING(MONTH(o.order_date) / 3.0) ) -- Truy vấn chính kết hợp
-                tất cả CTE SELECT cs.category_name, cs.category_revenue,
-                cs.total_orders, cs.avg_order_value, -- Top selling product
-                trong danh mục tp.product_name AS top_product, tp.total_sold AS
-                top_product_quantity, -- Percentage của danh mục so với tổng
-                doanh thu ROUND( cs.category_revenue * 100.0 /
-                SUM(cs.category_revenue) OVER(), 2 ) AS category_percentage, --
-                Rank danh mục theo doanh thu RANK() OVER (ORDER BY
-                cs.category_revenue DESC) AS category_rank FROM CategorySales cs
-                LEFT JOIN TopProducts tp ON cs.category_id = tp.category_id AND
-                tp.rank_in_category = 1 ORDER BY cs.category_revenue DESC;
+                <span class="comment"
+                  >-- Phân tích hiệu suất bán hàng tổng thể</span
+                >
+                <span class="keyword">WITH</span> CategorySales
+                <span class="keyword">AS</span> (
+                <span class="comment">-- Doanh thu theo danh mục</span>
+                <span class="keyword">SELECT</span>
+                c.category_id, c.category_name,
+                <span class="function">SUM</span>(oi.quantity * oi.list_price)
+                <span class="keyword">AS</span> category_revenue,
+                <span class="function">COUNT</span>(<span class="keyword"
+                  >DISTINCT</span
+                >
+                o.order_id) <span class="keyword">AS</span> total_orders,
+                <span class="function">AVG</span>(oi.quantity * oi.list_price)
+                <span class="keyword">AS</span> avg_order_value
+                <span class="keyword">FROM</span> categories c
+                <span class="keyword">INNER JOIN</span> products p
+                <span class="keyword">ON</span> c.category_id = p.category_id
+                <span class="keyword">INNER JOIN</span> order_items oi
+                <span class="keyword">ON</span> p.product_id = oi.product_id
+                <span class="keyword">INNER JOIN</span> orders o
+                <span class="keyword">ON</span> oi.order_id = o.order_id
+                <span class="keyword">WHERE</span> o.order_date >=
+                <span class="function">DATEADD</span>(<span class="keyword"
+                  >MONTH</span
+                >, -<span class="number">12</span>,
+                <span class="function">GETDATE</span>())
+                <span class="comment">-- 12 tháng gần nhất</span>
+                <span class="keyword">GROUP BY</span> c.category_id,
+                c.category_name ), TopProducts <span class="keyword">AS</span> (
+                <span class="comment"
+                  >-- Top 3 sản phẩm bán chạy trong mỗi danh mục</span
+                >
+                <span class="keyword">SELECT</span>
+                category_id, product_id, product_name, total_sold,
+                <span class="function">ROW_NUMBER</span>()
+                <span class="keyword">OVER</span> (<span class="keyword"
+                  >PARTITION BY</span
+                >
+                category_id <span class="keyword">ORDER BY</span> total_sold
+                <span class="keyword">DESC</span>)
+                <span class="keyword">AS</span> rank_in_category
+                <span class="keyword">FROM</span> (
+                <span class="keyword">SELECT</span>
+                p.category_id, p.product_id, p.product_name,
+                <span class="function">SUM</span>(oi.quantity)
+                <span class="keyword">AS</span> total_sold
+                <span class="keyword">FROM</span> products p
+                <span class="keyword">INNER JOIN</span> order_items oi
+                <span class="keyword">ON</span> p.product_id = oi.product_id
+                <span class="keyword">INNER JOIN</span> orders o
+                <span class="keyword">ON</span> oi.order_id = o.order_id
+                <span class="keyword">WHERE</span> o.order_date >=
+                <span class="function">DATEADD</span>(<span class="keyword"
+                  >MONTH</span
+                >, -<span class="number">12</span>,
+                <span class="function">GETDATE</span>())
+                <span class="keyword">GROUP BY</span> p.category_id,
+                p.product_id, p.product_name ) ProductSales ), QuarterlySales
+                <span class="keyword">AS</span> (
+                <span class="comment">-- Doanh thu theo quý</span>
+                <span class="keyword">SELECT</span>
+                <span class="function">YEAR</span>(o.order_date)
+                <span class="keyword">AS</span> year,
+                <span class="function">CEILING</span>(<span class="function"
+                  >MONTH</span
+                >(o.order_date) / <span class="number">3.0</span>)
+                <span class="keyword">AS</span> quarter,
+                <span class="function">SUM</span>(oi.quantity * oi.list_price)
+                <span class="keyword">AS</span> quarterly_revenue
+                <span class="keyword">FROM</span> orders o
+                <span class="keyword">INNER JOIN</span> order_items oi
+                <span class="keyword">ON</span> o.order_id = oi.order_id
+                <span class="keyword">WHERE</span> o.order_date >=
+                <span class="function">DATEADD</span>(<span class="keyword"
+                  >MONTH</span
+                >, -<span class="number">12</span>,
+                <span class="function">GETDATE</span>())
+                <span class="keyword">GROUP BY</span>
+                <span class="function">YEAR</span>(o.order_date),
+                <span class="function">CEILING</span>(<span class="function"
+                  >MONTH</span
+                >(o.order_date) / <span class="number">3.0</span>) )
+                <span class="comment"
+                  >-- Truy vấn chính kết hợp tất cả CTE</span
+                >
+                <span class="keyword">SELECT</span>
+                cs.category_name, cs.category_revenue, cs.total_orders,
+                cs.avg_order_value,
+                <span class="comment"
+                  >-- Top selling product trong danh mục</span
+                >
+                tp.product_name <span class="keyword">AS</span> top_product,
+                tp.total_sold
+                <span class="keyword">AS</span> top_product_quantity,
+                <span class="comment"
+                  >-- Percentage của danh mục so với tổng doanh thu</span
+                >
+                <span class="function">ROUND</span>( cs.category_revenue *
+                <span class="number">100.0</span> /
+                <span class="function">SUM</span>(cs.category_revenue)
+                <span class="keyword">OVER</span>(),
+                <span class="number">2</span> )
+                <span class="keyword">AS</span> category_percentage,
+                <span class="comment">-- Rank danh mục theo doanh thu</span>
+                <span class="function">RANK</span>()
+                <span class="keyword">OVER</span> (<span class="keyword"
+                  >ORDER BY</span
+                >
+                cs.category_revenue <span class="keyword">DESC</span>)
+                <span class="keyword">AS</span> category_rank
+                <span class="keyword">FROM</span> CategorySales cs
+                <span class="keyword">LEFT JOIN</span> TopProducts tp
+                <span class="keyword">ON</span> cs.category_id = tp.category_id
+                <span class="keyword">AND</span> tp.rank_in_category =
+                <span class="number">1</span>
+                <span class="keyword">ORDER BY</span> cs.category_revenue
+                <span class="keyword">DESC</span>;
               </div>
             </div>
 
