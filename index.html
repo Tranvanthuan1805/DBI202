@@ -23,11 +23,17 @@
         min-height: 100vh;
         color: #1f2937;
         line-height: 1.6;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
       .container {
         max-width: 1400px;
         margin: 0 auto;
         padding: 20px;
+        overflow-x: hidden;
+        box-sizing: border-box;
       }
       .header {
         background: rgba(255, 255, 255, 0.12);
@@ -190,7 +196,9 @@
         margin: 15px 0;
         border: 1px solid #e2e8f0;
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
-        white-space: pre-line;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        max-width: 100%;
       }
       .code-block::before {
         content: "SQL";
@@ -307,6 +315,8 @@
         overflow: hidden;
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
         border: 1px solid #e2e8f0;
+        table-layout: fixed;
+        word-wrap: break-word;
       }
 
       thead {
@@ -421,6 +431,19 @@
         font-weight: 600;
       }
 
+      /* Table wrapper for responsive */
+      .table-wrapper {
+        overflow-x: auto;
+        margin: 20px 0;
+      }
+      
+      /* Prevent text overflow in cells */
+      td, th {
+        max-width: 200px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
       .status-partial {
         color: #d97706;
         font-weight: 600;
@@ -484,6 +507,37 @@
         }
         .content-area {
           max-height: none;
+        }
+      }
+
+      /* Mobile responsive fixes */
+      @media (max-width: 768px) {
+        .container {
+          padding: 10px;
+        }
+        .code-block {
+          font-size: 12px;
+          padding: 15px;
+          overflow-x: auto;
+        }
+        table {
+          font-size: 12px;
+        }
+        td, th {
+          padding: 8px;
+          max-width: 120px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .code-block {
+          font-size: 11px;
+          padding: 10px;
+        }
+        td, th {
+          padding: 6px;
+          max-width: 80px;
+          font-size: 11px;
         }
       }
     </style>
