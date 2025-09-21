@@ -660,25 +660,15 @@
             <div class="example">
               <h4>Ví dụ thực tế:</h4>
               <div class="code-block">
-                <span class="keyword">CREATE TABLE</span>
-                <span class="table">SanPham</span> (
-                <span class="column">ID</span>
-                <span class="datatype">INT</span>,
-                <span class="column">SoLuongTon</span>
-                <span class="datatype">SMALLINT</span>,
-                <span class="column">TrangThai</span>
-                <span class="datatype">TINYINT</span>,
-                <span class="column">ViewCount</span>
-                <span class="datatype">BIGINT</span>
+                <span class="keyword">CREATE TABLE</span> <span class="table">SanPham</span> (
+                  <span class="column">ID</span> <span class="datatype">INT</span>,
+                  <span class="column">SoLuongTon</span> <span class="datatype">SMALLINT</span>,
+                  <span class="column">TrangThai</span> <span class="datatype">TINYINT</span>,
+                  <span class="column">ViewCount</span> <span class="datatype">BIGINT</span>
                 );
 
-                <span class="keyword">INSERT INTO</span>
-                <span class="table">SanPham</span>
-                <span class="keyword">VALUES</span> (<span class="number"
-                  >1001</span
-                >, <span class="number">150</span>,
-                <span class="number">1</span>,
-                <span class="number">2500000</span>);
+                <span class="keyword">INSERT INTO</span> <span class="table">SanPham</span>
+                <span class="keyword">VALUES</span> (<span class="number">1001</span>, <span class="number">150</span>, <span class="number">1</span>, <span class="number">2500000</span>);
               </div>
             </div>
 
@@ -723,36 +713,17 @@
             <div class="example">
               <h4>Ví dụ chi tiết:</h4>
               <div class="code-block">
-                <span class="keyword">CREATE TABLE</span>
-                <span class="table">DonHang</span> (
-                <span class="column">ID</span>
-                <span class="datatype">INT</span>,
-                <span class="column">Gia</span>
-                <span class="datatype">DECIMAL</span>(<span class="number"
-                  >10</span
-                >,<span class="number">2</span>),
-                <span class="column">ThueVAT</span>
-                <span class="datatype">DECIMAL</span>(<span class="number"
-                  >5</span
-                >,<span class="number">4</span>),
-                <span class="column">KhoiLuong</span>
-                <span class="datatype">FLOAT</span>,
-                <span class="column">TyLeGiamGia</span>
-                <span class="datatype">REAL</span>
+                <span class="keyword">CREATE TABLE</span> <span class="table">DonHang</span> (
+                  <span class="column">ID</span> <span class="datatype">INT</span>,
+                  <span class="column">Gia</span> <span class="datatype">DECIMAL</span>(<span class="number">10</span>,<span class="number">2</span>),
+                  <span class="column">ThueVAT</span> <span class="datatype">DECIMAL</span>(<span class="number">5</span>,<span class="number">4</span>),
+                  <span class="column">KhoiLuong</span> <span class="datatype">FLOAT</span>,
+                  <span class="column">TyLeGiamGia</span> <span class="datatype">REAL</span>
                 );
 
-                <span class="keyword">INSERT INTO</span>
-                <span class="table">DonHang</span>
-                <span class="keyword">VALUES</span> (<span class="number"
-                  >1</span
-                >, <span class="number">1299000.50</span>,
-                <span class="number">0.1000</span>,
-                <span class="number">2.756891</span>,
-                <span class="number">0.15</span>), (<span class="number">2</span
-                >, <span class="number">850000.00</span>,
-                <span class="number">0.0800</span>,
-                <span class="number">1.234567</span>,
-                <span class="number">0.20</span>);
+                <span class="keyword">INSERT INTO</span> <span class="table">DonHang</span>
+                <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="number">1299000.50</span>, <span class="number">0.1000</span>, <span class="number">2.756891</span>, <span class="number">0.15</span>), 
+                       (<span class="number">2</span>, <span class="number">850000.00</span>, <span class="number">0.0800</span>, <span class="number">1.234567</span>, <span class="number">0.20</span>);
 
                 <span class="keyword">SELECT</span>
                 <span class="column">ID</span>, <span class="column">Gia</span>,
@@ -774,10 +745,10 @@
             <div class="highlight-box">
               <h4>⚠️ Lưu ý về FLOAT vs DECIMAL:</h4>
               <div class="code-block">
-                -- FLOAT có thể mất độ chính xác SELECT 0.1 + 0.2 as
-                FloatResult, -- Kết quả: 0.30000000000000004 CAST(0.1 AS
-                DECIMAL(10,2)) + CAST(0.2 AS DECIMAL(10,2)) as DecimalResult --
-                Kết quả: 0.30 -- Vì vậy với tiền tệ luôn dùng DECIMAL!
+                <span class="comment">-- FLOAT có thể mất độ chính xác</span>
+                <span class="keyword">SELECT</span> <span class="number">0.1</span> <span class="operator">+</span> <span class="number">0.2</span> <span class="keyword">AS</span> <span class="column">FloatResult</span>,       <span class="comment">-- Kết quả: 0.30000000000000004</span>
+                       <span class="function">CAST</span>(<span class="number">0.1</span> <span class="keyword">AS</span> <span class="datatype">DECIMAL</span>(<span class="number">10</span>,<span class="number">2</span>)) <span class="operator">+</span> <span class="function">CAST</span>(<span class="number">0.2</span> <span class="keyword">AS</span> <span class="datatype">DECIMAL</span>(<span class="number">10</span>,<span class="number">2</span>)) <span class="keyword">AS</span> <span class="column">DecimalResult</span> <span class="comment">-- Kết quả: 0.30</span>
+                <span class="comment">-- Vì vậy với tiền tệ luôn dùng DECIMAL!</span>
               </div>
             </div>
 
@@ -832,29 +803,17 @@
             <div class="example">
               <h4>Ví dụ so sánh CHAR vs VARCHAR:</h4>
               <div class="code-block">
-                <span class="keyword">CREATE TABLE</span>
-                <span class="table">Demo</span> (
-                <span class="column">MaKH</span>
-                <span class="datatype">CHAR</span>(<span class="number">10</span
-                >), <span class="column">TenKH</span>
-                <span class="datatype">VARCHAR</span>(<span class="number"
-                  >50</span
-                >), <span class="column">GhiChu</span>
-                <span class="datatype">TEXT</span>
+                <span class="keyword">CREATE TABLE</span> <span class="table">Demo</span> (
+                  <span class="column">MaKH</span> <span class="datatype">CHAR</span>(<span class="number">10</span>), 
+                  <span class="column">TenKH</span> <span class="datatype">VARCHAR</span>(<span class="number">50</span>), 
+                  <span class="column">GhiChu</span> <span class="datatype">TEXT</span>
                 );
 
-                <span class="keyword">INSERT INTO</span>
-                <span class="table">Demo</span>
-                <span class="keyword">VALUES</span> (<span class="string"
-                  >'KH001'</span
-                >, <span class="string">'Nguyễn Văn An'</span>,
-                <span class="string">'Khách hàng VIP từ năm 2020'</span>),
-                (<span class="string">'KH002'</span>,
-                <span class="string">'Trần Thị Bình'</span>,
-                <span class="string">'Khách hàng thường xuyên mua hàng'</span>);
+                <span class="keyword">INSERT INTO</span> <span class="table">Demo</span>
+                <span class="keyword">VALUES</span> (<span class="string">'KH001'</span>, <span class="string">'Nguyễn Văn An'</span>, <span class="string">'Khách hàng VIP từ năm 2020'</span>),
+                       (<span class="string">'KH002'</span>, <span class="string">'Trần Thị Bình'</span>, <span class="string">'Khách hàng thường xuyên mua hàng'</span>);
 
-                <span class="keyword">SELECT</span>
-                <span class="column">MaKH</span>,
+                <span class="keyword">SELECT</span> <span class="column">MaKH</span>,
                 <span class="function">LEN</span>(<span class="column"
                   >MaKH</span
                 >) <span class="keyword">AS</span>
@@ -872,18 +831,12 @@
             <div class="info-box">
               <h4>🌏 Unicode cho tiếng Việt:</h4>
               <div class="code-block">
-                <span class="keyword">CREATE TABLE</span>
-                <span class="table">KhachHang</span> (
-                <span class="column">ID</span>
-                <span class="datatype">INT</span>,
-                <span class="column">TenKH</span>
-                <span class="datatype">NVARCHAR</span>(<span class="number"
-                  >100</span
-                >), <span class="column">DiaChi</span>
-                <span class="datatype">NVARCHAR</span>(<span class="number"
-                  >200</span
-                >), <span class="column">GhiChu</span>
-                <span class="datatype">NTEXT</span>
+                <span class="keyword">CREATE TABLE</span> <span class="table">KhachHang</span> (
+                  <span class="column">ID</span> <span class="datatype">INT</span>,
+                  <span class="column">TenKH</span> <span class="datatype">NVARCHAR</span>(<span class="number">100</span>), 
+                  <span class="column">DiaChi</span> <span class="datatype">NVARCHAR</span>(<span class="number">200</span>), 
+                  <span class="column">GhiChu</span> <span class="datatype">NTEXT</span>
+                );
                 );
 
                 <span class="keyword">INSERT INTO</span>
@@ -945,63 +898,15 @@
             <div class="example">
               <h4>Ví dụ thực tế:</h4>
               <div class="code-block">
-                CREATE TABLE LichSuGiaoDich ( ID INT, NgayGiaoDich DATE, -- Chỉ
-                cần ngày GioGiaoDich TIME, -- Chỉ cần giờ ThoiDiemDayDu
-                <span class="column">NgayGiaoDich</span>
-                <span class="datatype">DATE</span>,
-                <span class="column">GioGiaoDich</span>
-                <span class="datatype">TIME</span>,
-                <span class="column">ThoiDiemDayDu</span>
-                <span class="datatype">DATETIME2</span>,
-                <span class="column">NgayTao</span>
-                <span class="datatype">DATETIME</span>
-                <span class="keyword">DEFAULT</span>
-                <span class="function">GETDATE</span>(),
-                <span class="column">LastUpdate</span>
-                <span class="datatype">TIMESTAMP</span>
+                <span class="keyword">CREATE TABLE</span> <span class="table">LichSuGiaoDich</span> (
+                    <span class="column">ID</span> <span class="datatype">INT</span>,
+                    <span class="column">NgayGiaoDich</span> <span class="datatype">DATE</span>,
+                    <span class="column">GioGiaoDich</span> <span class="datatype">TIME</span>,
+                    <span class="column">ThoiDiemDayDu</span> <span class="datatype">DATETIME2</span>
                 );
 
-                <span class="keyword">INSERT INTO</span>
-                <span class="table">LichSuGiaoDich</span> (<span class="column"
-                  >ID</span
-                >, <span class="column">NgayGiaoDich</span>,
-                <span class="column">GioGiaoDich</span>,
-                <span class="column">ThoiDiemDayDu</span>)
-                <span class="keyword">VALUES</span>
-                (<span class="number">1</span>,
-                <span class="string">'2023-12-01'</span>,
-                <span class="string">'14:30:00'</span>,
-                <span class="string">'2023-12-01 14:30:25.1234567'</span>);
-
-                <span class="keyword">SELECT</span>
-                <span class="function">GETDATE</span>()
-                <span class="keyword">AS</span>
-                <span class="column">NgayHienTai</span>,
-                <span class="function">YEAR</span>(<span class="column"
-                  >NgayGiaoDich</span
-                >) <span class="keyword">AS</span>
-                <span class="column">Nam</span>,
-                <span class="function">MONTH</span>(<span class="column"
-                  >NgayGiaoDich</span
-                >) <span class="keyword">AS</span>
-                <span class="column">Thang</span>,
-                <span class="function">DAY</span>(<span class="column"
-                  >NgayGiaoDich</span
-                >) <span class="keyword">AS</span>
-                <span class="column">Ngay</span>,
-                <span class="function">DATENAME</span>(<span class="keyword"
-                  >WEEKDAY</span
-                >, <span class="column">NgayGiaoDich</span>)
-                <span class="keyword">AS</span>
-                <span class="column">ThuMay</span>,
-                <span class="function">DATEDIFF</span>(<span class="keyword"
-                  >DAY</span
-                >, <span class="column">NgayGiaoDich</span>,
-                <span class="function">GETDATE</span>())
-                <span class="keyword">AS</span>
-                <span class="column">SoNgayTruoc</span>
-                <span class="keyword">FROM</span>
-                <span class="table">LichSuGiaoDich</span>;
+                <span class="keyword">INSERT INTO</span> <span class="table">LichSuGiaoDich</span> 
+                <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">'2023-12-01'</span>, <span class="string">'14:30:00'</span>, <span class="string">'2023-12-01 14:30:25'</span>);
               </div>
             </div>
 
@@ -1053,27 +958,44 @@
 
             <h3>✅ 4. KIỂU BOOLEAN VÀ BINARY</h3>
             <div class="example">
-              <h4>Kiểu Boolean:</h4>
+              <h4>🔧 Kiểu Boolean (BIT):</h4>
               <div class="code-block">
-                CREATE TABLE CauHinh ( ID INT, TenCauHinh VARCHAR(50),
-                GiaTriBoolean BIT, -- 0 = False, 1 = True MoTa VARCHAR(100) );
-                INSERT INTO CauHinh VALUES (1, 'AllowRegistration', 1, 'Cho phép
-                đăng ký mới'), (2, 'MaintenanceMode', 0, 'Chế độ bảo trì'), (3,
-                'EnableNotification', 1, 'Bật thông báo'); -- Sử dụng SELECT *
-                FROM CauHinh WHERE GiaTriBoolean = 1; -- Lấy các cấu hình đang
-                bật
+                <span class="keyword">CREATE TABLE</span> <span class="table">CauHinh</span> (
+                    <span class="column">ID</span> <span class="datatype">INT</span>,
+                    <span class="column">TenCauHinh</span> <span class="datatype">VARCHAR</span>(<span class="number">50</span>),
+                    <span class="column">GiaTriBoolean</span> <span class="datatype">BIT</span>, <span class="comment">-- 0 = False, 1 = True</span>
+                    <span class="column">MoTa</span> <span class="datatype">VARCHAR</span>(<span class="number">100</span>)
+                );
+                
+                <span class="keyword">INSERT INTO</span> <span class="table">CauHinh</span> 
+                <span class="keyword">VALUES</span> 
+                    (<span class="number">1</span>, <span class="string">'AllowRegistration'</span>, <span class="number">1</span>, <span class="string">'Cho phép đăng ký mới'</span>),
+                    (<span class="number">2</span>, <span class="string">'MaintenanceMode'</span>, <span class="number">0</span>, <span class="string">'Chế độ bảo trì'</span>),
+                    (<span class="number">3</span>, <span class="string">'EnableNotification'</span>, <span class="number">1</span>, <span class="string">'Bật thông báo'</span>);
+                       
+                <span class="comment">-- Sử dụng</span>
+                <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> <span class="table">CauHinh</span> 
+                <span class="keyword">WHERE</span> <span class="column">GiaTriBoolean</span> <span class="operator">=</span> <span class="number">1</span>; <span class="comment">-- Lấy các cấu hình đang bật</span>
               </div>
             </div>
 
             <div class="example">
               <h4>💾 Kiểu Binary:</h4>
               <div class="code-block">
-                CREATE TABLE TapTin ( ID INT, TenFile VARCHAR(100), NoiDung
-                VARBINARY(MAX), -- Lưu file dưới dạng binary KichThuoc INT,
-                LoaiFile VARCHAR(10) ); -- Chèn file (thường qua ứng dụng)
-                INSERT INTO TapTin VALUES (1, 'logo.png', 0x89504E470D0A1A0A...,
-                2048, 'PNG'); -- Lấy thông tin file SELECT TenFile, KichThuoc,
-                LoaiFile, LEN(NoiDung) as KichThuocThucTe FROM TapTin;
+                <span class="keyword">CREATE TABLE</span> <span class="table">TapTin</span> (
+                    <span class="column">ID</span> <span class="datatype">INT</span>,
+                    <span class="column">TenFile</span> <span class="datatype">VARCHAR</span>(<span class="number">100</span>),
+                    <span class="column">NoiDung</span> <span class="datatype">VARBINARY</span>(<span class="keyword">MAX</span>),
+                    <span class="column">KichThuoc</span> <span class="datatype">INT</span>
+                );
+                
+                <span class="keyword">INSERT INTO</span> <span class="table">TapTin</span> 
+                <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">'logo.png'</span>, <span class="string">0x89504E470D0A...</span>, <span class="number">2048</span>);
+                
+                <span class="comment">-- Lấy thông tin file</span>
+                <span class="keyword">SELECT</span> <span class="column">TenFile</span>, <span class="column">KichThuoc</span>, <span class="column">LoaiFile</span>, 
+                       <span class="function">LEN</span>(<span class="column">NoiDung</span>) <span class="keyword">AS</span> <span class="column">KichThuocThucTe</span> 
+                <span class="keyword">FROM</span> <span class="table">TapTin</span>;
               </div>
             </div>
 
@@ -1081,13 +1003,15 @@
             <div class="example">
               <h4>IDENTITY - Tự động tăng:</h4>
               <div class="code-block">
-                CREATE TABLE KhachHang ( ID INT IDENTITY(1,1), -- Bắt đầu từ 1,
-                mỗi lần tăng 1 MaKH AS 'KH' + RIGHT('000' + CAST(ID AS
-                VARCHAR(3)), 3), -- Computed column TenKH VARCHAR(100), NgayTao
-                DATETIME DEFAULT GETDATE() ); INSERT INTO KhachHang (TenKH)
-                VALUES ('Nguyễn Văn A'), ('Trần Thị B'); SELECT * FROM
-                KhachHang; -- Kết quả: -- ID: 1, MaKH: KH001, TenKH: Nguyễn Văn
-                A -- ID: 2, MaKH: KH002, TenKH: Trần Thị B
+                <span class="keyword">CREATE TABLE</span> <span class="table">KhachHang</span> (
+                    <span class="column">ID</span> <span class="datatype">INT</span> <span class="keyword">IDENTITY</span>(<span class="number">1</span>,<span class="number">1</span>), <span class="comment">-- Bắt đầu từ 1, mỗi lần tăng 1</span>
+                    <span class="column">MaKH</span> <span class="keyword">AS</span> <span class="string">'KH'</span> <span class="operator">+</span> <span class="function">RIGHT</span>(<span class="string">'000'</span> <span class="operator">+</span> <span class="function">CAST</span>(<span class="column">ID</span> <span class="keyword">AS</span> <span class="datatype">VARCHAR</span>(<span class="number">3</span>)), <span class="number">3</span>), <span class="comment">-- Computed column</span>
+                    <span class="column">TenKH</span> <span class="datatype">VARCHAR</span>(<span class="number">100</span>),
+                    <span class="column">NgayTao</span> <span class="datatype">DATETIME</span> <span class="keyword">DEFAULT</span> <span class="function">GETDATE</span>()
+                );
+                
+                <span class="keyword">INSERT INTO</span> <span class="table">KhachHang</span> (<span class="column">TenKH</span>)
+                <span class="keyword">VALUES</span> (<span class="string">'Nguyễn Văn A'</span>), (<span class="string">'Trần Thị B'</span>);
               </div>
             </div>
 
@@ -1286,22 +1210,13 @@
               <h4>Ví dụ tổng hợp:</h4>
               <p>Giả sử bạn có một bảng <code>users</code> (người dùng).</p>
               <div class="code-block">
-                <span class="keyword">CREATE TABLE</span>
-                <span class="table">users</span> (
-                <span class="column">id</span>
-                <span class="datatype">INT</span>,
-                <span class="column">first_name</span>
-                <span class="datatype">VARCHAR</span>(<span class="number"
-                  >50</span
-                >), <span class="column">last_name</span>
-                <span class="datatype">VARCHAR</span>(<span class="number"
-                  >50</span
-                >), <span class="column">country_code</span>
-                <span class="datatype">CHAR</span>(<span class="number">2</span
-                >), <span class="column">phone_number</span>
-                <span class="datatype">VARCHAR</span>(<span class="number"
-                  >15</span
-                >) );
+                <span class="keyword">CREATE TABLE</span> <span class="table">users</span> (
+                  <span class="column">id</span> <span class="datatype">INT</span>,
+                  <span class="column">first_name</span> <span class="datatype">VARCHAR</span>(<span class="number">50</span>), 
+                  <span class="column">last_name</span> <span class="datatype">VARCHAR</span>(<span class="number">50</span>), 
+                  <span class="column">country_code</span> <span class="datatype">CHAR</span>(<span class="number">2</span>), 
+                  <span class="column">phone_number</span> <span class="datatype">VARCHAR</span>(<span class="number">15</span>)
+                );
               </div>
               <p><b>Trong ví dụ trên:</b></p>
               <ul>
@@ -1346,27 +1261,27 @@
 
               <h5><b>Chuyển số thành chuỗi:</b></h5>
               <div class="code-block">
-                SELECT CAST(123 AS VARCHAR(10)); -- Kết quả: '123' (giá trị số
-                123 được chuyển thành chuỗi ký tự '123')
+                <span class="keyword">SELECT</span> <span class="function">CAST</span>(<span class="number">123</span> <span class="keyword">AS</span> <span class="datatype">VARCHAR</span>(<span class="number">10</span>)); 
+                <span class="comment">-- Kết quả: '123'</span>
               </div>
               <p>
                 Đây là cách bạn có thể nối một giá trị số vào một chuỗi văn bản.
                 Ví dụ:
               </p>
               <div class="code-block">
-                SELECT 'Sản phẩm có mã là: ' + CAST(123 AS VARCHAR(10));
+                <span class="keyword">SELECT</span> <span class="string">'Sản phẩm có mã là: '</span> <span class="operator">+</span> <span class="function">CAST</span>(<span class="number">123</span> <span class="keyword">AS</span> <span class="datatype">VARCHAR</span>(<span class="number">10</span>));
               </div>
 
               <h5><b>Chuyển chuỗi thành số:</b></h5>
               <div class="code-block">
-                SELECT CAST('123.45' AS DECIMAL(5, 2)); -- Kết quả: 123.45
-                (chuỗi '123.45' được chuyển thành số thập phân)
+                <span class="keyword">SELECT</span> <span class="function">CAST</span>(<span class="string">'123.45'</span> <span class="keyword">AS</span> <span class="datatype">DECIMAL</span>(<span class="number">5</span>, <span class="number">2</span>)); 
+                <span class="comment">-- Kết quả: 123.45</span>
               </div>
 
               <h5><b>Chuyển chuỗi thành ngày tháng:</b></h5>
               <div class="code-block">
-                SELECT CAST('2025-09-21' AS DATE); -- Kết quả: 2025-09-21 (chuỗi
-                được chuyển thành kiểu dữ liệu ngày)
+                <span class="keyword">SELECT</span> <span class="function">CAST</span>(<span class="string">'2025-09-21'</span> <span class="keyword">AS</span> <span class="datatype">DATE</span>); 
+                <span class="comment">-- Kết quả: 2025-09-21</span>
               </div>
             </div>
 
@@ -1408,8 +1323,9 @@
 
               <h5><b>Ví dụ khác:</b></h5>
               <div class="code-block">
-                -- Định dạng ngày tháng kiểu yyyy-MM-dd SELECT CONVERT(VARCHAR,
-                GETDATE(), 23); -- Kết quả: '2025-09-21'
+                <span class="comment">-- Định dạng ngày tháng kiểu yyyy-MM-dd</span>
+                <span class="keyword">SELECT</span> <span class="function">CONVERT</span>(<span class="datatype">VARCHAR</span>, <span class="function">GETDATE</span>(), <span class="number">23</span>); 
+                <span class="comment">-- Kết quả: '2025-09-21'</span>
               </div>
             </div>
 
@@ -1695,16 +1611,30 @@
             <div class="example">
               <h4>Ví dụ thực tế so sánh:</h4>
               <div class="code-block">
-                -- Tạo bảng test CREATE TABLE test_data ( id INT, name
-                VARCHAR(50), created_date DATE ); -- Thêm dữ liệu INSERT INTO
-                test_data VALUES (1, 'Item 1', '2023-01-01'), (2, 'Item 2',
-                '2023-02-01'), (3, 'Item 3', '2023-03-01'); -- DELETE: Xóa có
-                điều kiện (có thể rollback) BEGIN TRANSACTION; DELETE FROM
-                test_data WHERE id = 1; -- Có thể ROLLBACK nếu cần -- TRUNCATE:
-                Xóa toàn bộ dữ liệu (không thể rollback) TRUNCATE TABLE
-                test_data; -- Bảng vẫn tồn tại nhưng rỗng -- DROP: Xóa cả bảng
-                (không thể rollback) DROP TABLE test_data; -- Bảng không còn tồn
-                tại
+                <span class="comment">-- Tạo bảng test</span>
+                <span class="keyword">CREATE TABLE</span> <span class="table">test_data</span> (
+                    <span class="column">id</span> <span class="datatype">INT</span>,
+                    <span class="column">name</span> <span class="datatype">VARCHAR</span>(<span class="number">50</span>),
+                    <span class="column">created_date</span> <span class="datatype">DATE</span>
+                );
+                
+                <span class="comment">-- Thêm dữ liệu</span>
+                <span class="keyword">INSERT INTO</span> <span class="table">test_data</span> 
+                <span class="keyword">VALUES</span> 
+                    (<span class="number">1</span>, <span class="string">'Item 1'</span>, <span class="string">'2023-01-01'</span>),
+                    (<span class="number">2</span>, <span class="string">'Item 2'</span>, <span class="string">'2023-02-01'</span>),
+                    (<span class="number">3</span>, <span class="string">'Item 3'</span>, <span class="string">'2023-03-01'</span>);
+                
+                <span class="comment">-- DELETE: Xóa có điều kiện (có thể rollback)</span>
+                <span class="keyword">BEGIN TRANSACTION</span>;
+                <span class="comment">-- DELETE: Xóa có điều kiện</span>
+                <span class="keyword">DELETE FROM</span> <span class="table">test_data</span> <span class="keyword">WHERE</span> <span class="column">id</span> <span class="operator">=</span> <span class="number">1</span>;
+                
+                <span class="comment">-- TRUNCATE: Xóa toàn bộ</span>
+                <span class="keyword">TRUNCATE TABLE</span> <span class="table">test_data</span>;
+                
+                <span class="comment">-- DROP: Xóa bảng</span>
+                <span class="keyword">DROP TABLE</span> <span class="table">test_data</span>;
               </div>
             </div>
           </section>
@@ -1739,8 +1669,11 @@
             <div class="example">
               <h4>Ví dụ:</h4>
               <div class="code-block">
-                CREATE TABLE orders ( order_id INT IDENTITY(1,1) PRIMARY KEY, --
-                IDENTITY(seed, increment) customer_id INT, order_date DATE );
+                <span class="keyword">CREATE TABLE</span> <span class="table">orders</span> (
+                    <span class="column">order_id</span> <span class="datatype">INT</span> <span class="keyword">IDENTITY</span>(<span class="number">1</span>,<span class="number">1</span>) <span class="keyword">PRIMARY KEY</span>, <span class="comment">-- IDENTITY(seed, increment)</span>
+                    <span class="column">customer_id</span> <span class="datatype">INT</span>,
+                    <span class="column">order_date</span> <span class="datatype">DATE</span>
+                );
               </div>
               <p>Trong đó, <code>IDENTITY(1,1)</code> có nghĩa là:</p>
               <ul>
@@ -1802,13 +1735,17 @@
               <h4>Ví dụ:</h4>
               <div class="code-block">
                 -- Tạo một SEQUENCE có tên là seq_transaction_id, bắt đầu từ 1
-                và tăng 1 CREATE SEQUENCE seq_transaction_id START WITH 1
-                INCREMENT BY 1; -- Sử dụng SEQUENCE khi thêm dữ liệu vào bảng
-                INSERT INTO transactions (transaction_id, transaction_date)
-                VALUES (NEXT VALUE FOR seq_transaction_id, GETDATE()); -- Có thể
-                sử dụng cùng SEQUENCE cho nhiều bảng khác nhau INSERT INTO
-                audit_log (log_id, action, timestamp) VALUES (NEXT VALUE FOR
-                seq_transaction_id, 'LOGIN', GETDATE());
+                và tăng 1
+                <span class="keyword">CREATE SEQUENCE</span> <span class="table">seq_transaction_id</span> 
+                <span class="keyword">START WITH</span> <span class="number">1</span> <span class="keyword">INCREMENT BY</span> <span class="number">1</span>;
+                
+                <span class="comment">-- Sử dụng SEQUENCE khi thêm dữ liệu vào bảng</span>
+                <span class="keyword">INSERT INTO</span> <span class="table">transactions</span> (<span class="column">transaction_id</span>, <span class="column">transaction_date</span>)
+                <span class="keyword">VALUES</span> (<span class="keyword">NEXT VALUE FOR</span> <span class="table">seq_transaction_id</span>, <span class="function">GETDATE</span>());
+                
+                <span class="comment">-- Có thể sử dụng cùng SEQUENCE cho nhiều bảng khác nhau</span>
+                <span class="keyword">INSERT INTO</span> <span class="table">audit_log</span> (<span class="column">log_id</span>, <span class="column">action</span>, <span class="column">timestamp</span>) 
+                <span class="keyword">VALUES</span> (<span class="keyword">NEXT VALUE FOR</span> <span class="table">seq_transaction_id</span>, <span class="string">'LOGIN'</span>, <span class="function">GETDATE</span>());
               </div>
             </div>
 
@@ -1885,19 +1822,39 @@
             <div class="example">
               <h4>Ví dụ thực tế so sánh:</h4>
               <div class="code-block">
-                -- IDENTITY: Đơn giản cho một bảng CREATE TABLE customers (
-                customer_id INT IDENTITY(1,1) PRIMARY KEY, customer_name
-                NVARCHAR(100), email NVARCHAR(100) ); -- Chèn dữ liệu (không cần
-                chỉ định customer_id) INSERT INTO customers (customer_name,
-                email) VALUES (N'Nguyễn Văn A', 'a@email.com'); -- SEQUENCE:
-                Linh hoạt cho nhiều bảng CREATE SEQUENCE seq_global_id START
-                WITH 1000 INCREMENT BY 1; CREATE TABLE orders ( order_id INT
-                PRIMARY KEY, customer_id INT, order_date DATE ); CREATE TABLE
-                invoices ( invoice_id INT PRIMARY KEY, order_id INT, amount
-                DECIMAL(10,2) ); -- Sử dụng cùng sequence cho cả hai bảng INSERT
-                INTO orders VALUES (NEXT VALUE FOR seq_global_id, 1, GETDATE());
-                INSERT INTO invoices VALUES (NEXT VALUE FOR seq_global_id, 1001,
-                150000.00);
+                <span class="comment">-- IDENTITY: Đơn giản cho một bảng</span>
+                <span class="keyword">CREATE TABLE</span> <span class="table">customers</span> (
+                    <span class="column">customer_id</span> <span class="datatype">INT</span> <span class="keyword">IDENTITY</span>(<span class="number">1</span>,<span class="number">1</span>) <span class="keyword">PRIMARY KEY</span>,
+                    <span class="column">customer_name</span> <span class="datatype">NVARCHAR</span>(<span class="number">100</span>),
+                    <span class="column">email</span> <span class="datatype">NVARCHAR</span>(<span class="number">100</span>)
+                );
+                
+                <span class="comment">-- Chèn dữ liệu</span>
+                <span class="keyword">INSERT INTO</span> <span class="table">customers</span> (<span class="column">customer_name</span>, <span class="column">email</span>)
+                <span class="keyword">VALUES</span> (<span class="string">N'Nguyễn Văn A'</span>, <span class="string">'a@email.com'</span>);
+                
+                <span class="comment">-- SEQUENCE: Linh hoạt cho nhiều bảng</span>
+                <span class="keyword">CREATE SEQUENCE</span> <span class="table">seq_global_id</span> 
+                <span class="keyword">START WITH</span> <span class="number">1000</span> <span class="keyword">INCREMENT BY</span> <span class="number">1</span>;
+                
+                <span class="keyword">CREATE TABLE</span> <span class="table">orders</span> (
+                    <span class="column">order_id</span> <span class="datatype">INT</span> <span class="keyword">PRIMARY KEY</span>,
+                    <span class="column">customer_id</span> <span class="datatype">INT</span>,
+                    <span class="column">order_date</span> <span class="datatype">DATE</span>
+                );
+                
+                <span class="keyword">CREATE TABLE</span> <span class="table">invoices</span> (
+                    <span class="column">invoice_id</span> <span class="datatype">INT</span> <span class="keyword">PRIMARY KEY</span>,
+                    <span class="column">order_id</span> <span class="datatype">INT</span>,
+                    <span class="column">amount</span> <span class="datatype">DECIMAL</span>(<span class="number">10</span>,<span class="number">2</span>)
+                );
+                
+                <span class="comment">-- Sử dụng cùng sequence cho cả hai bảng</span>
+                <span class="keyword">INSERT INTO</span> <span class="table">orders</span> 
+                <span class="keyword">VALUES</span> (<span class="keyword">NEXT VALUE FOR</span> <span class="table">seq_global_id</span>, <span class="number">1</span>, <span class="function">GETDATE</span>());
+                
+                <span class="keyword">INSERT INTO</span> <span class="table">invoices</span> 
+                <span class="keyword">VALUES</span> (<span class="keyword">NEXT VALUE FOR</span> <span class="table">seq_global_id</span>, <span class="number">1001</span>, <span class="number">150000.00</span>);
               </div>
             </div>
 
@@ -1954,10 +1911,12 @@
             <div class="example">
               <h4>Ví dụ:</h4>
               <div class="code-block">
-                CREATE TABLE products ( product_id INT PRIMARY KEY, product_name
-                VARCHAR(255) NOT NULL, -- Tên sản phẩm không được phép để trống
-                description TEXT, price DECIMAL(10,2) NOT NULL -- Giá sản phẩm
-                bắt buộc phải có );
+                <span class="keyword">CREATE TABLE</span> <span class="table">products</span> (
+                    <span class="column">product_id</span> <span class="datatype">INT</span> <span class="keyword">PRIMARY KEY</span>,
+                    <span class="column">product_name</span> <span class="datatype">VARCHAR</span>(<span class="number">255</span>) <span class="keyword">NOT NULL</span>, <span class="comment">-- Tên sản phẩm không được phép để trống</span>
+                    <span class="column">description</span> <span class="datatype">TEXT</span>,
+                    <span class="column">price</span> <span class="datatype">DECIMAL</span>(<span class="number">10</span>,<span class="number">2</span>) <span class="keyword">NOT NULL</span> <span class="comment">-- Giá sản phẩm bắt buộc phải có</span>
+                );
               </div>
               <p>
                 Cột <code>product_name</code> không được phép để trống - khách
@@ -1975,10 +1934,12 @@
             <div class="example">
               <h4>Ví dụ:</h4>
               <div class="code-block">
-                CREATE TABLE users ( user_id INT PRIMARY KEY, username
-                VARCHAR(50) UNIQUE, -- Tên đăng nhập phải duy nhất email
-                VARCHAR(255) UNIQUE, -- Email phải duy nhất phone VARCHAR(15)
-                UNIQUE -- Số điện thoại phải duy nhất );
+                <span class="keyword">CREATE TABLE</span> <span class="table">users</span> (
+                    <span class="column">user_id</span> <span class="datatype">INT</span> <span class="keyword">PRIMARY KEY</span>,
+                    <span class="column">username</span> <span class="datatype">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">UNIQUE</span>, <span class="comment">-- Tên đăng nhập phải duy nhất</span>
+                    <span class="column">email</span> <span class="datatype">VARCHAR</span>(<span class="number">255</span>) <span class="keyword">UNIQUE</span>, <span class="comment">-- Email phải duy nhất</span>
+                    <span class="column">phone</span> <span class="datatype">VARCHAR</span>(<span class="number">15</span>) <span class="keyword">UNIQUE</span> <span class="comment">-- Số điện thoại phải duy nhất</span>
+                );
               </div>
               <p>
                 Mỗi người dùng phải có một địa chỉ email riêng biệt - không được
@@ -1997,9 +1958,11 @@
             <div class="example">
               <h4>Ví dụ:</h4>
               <div class="code-block">
-                CREATE TABLE customers ( customer_id INT IDENTITY(1,1) PRIMARY
-                KEY, -- ID khách hàng tự tăng customer_name NVARCHAR(100) NOT
-                NULL, registration_date DATE DEFAULT GETDATE() );
+                <span class="keyword">CREATE TABLE</span> <span class="table">customers</span> (
+                    <span class="column">customer_id</span> <span class="datatype">INT</span> <span class="keyword">IDENTITY</span>(<span class="number">1</span>,<span class="number">1</span>) <span class="keyword">PRIMARY KEY</span>, <span class="comment">-- ID khách hàng tự tăng</span>
+                    <span class="column">customer_name</span> <span class="datatype">NVARCHAR</span>(<span class="number">100</span>) <span class="keyword">NOT NULL</span>,
+                    <span class="column">registration_date</span> <span class="datatype">DATE</span> <span class="keyword">DEFAULT</span> <span class="function">GETDATE</span>()
+                );
               </div>
               <p>
                 Cột <code>customer_id</code> là duy nhất và không được phép để
@@ -2019,9 +1982,13 @@
             <div class="example">
               <h4>Ví dụ:</h4>
               <div class="code-block">
-                CREATE TABLE orders ( order_id INT PRIMARY KEY, customer_id INT,
-                order_date DATE, total_amount DECIMAL(12,2), FOREIGN KEY
-                (customer_id) REFERENCES customers(customer_id) );
+                <span class="keyword">CREATE TABLE</span> <span class="table">orders</span> (
+                    <span class="column">order_id</span> <span class="datatype">INT</span> <span class="keyword">PRIMARY KEY</span>,
+                    <span class="column">customer_id</span> <span class="datatype">INT</span>,
+                    <span class="column">order_date</span> <span class="datatype">DATE</span>,
+                    <span class="column">total_amount</span> <span class="datatype">DECIMAL</span>(<span class="number">12</span>,<span class="number">2</span>),
+                    <span class="keyword">FOREIGN KEY</span> (<span class="column">customer_id</span>) <span class="keyword">REFERENCES</span> <span class="table">customers</span>(<span class="column">customer_id</span>)
+                );
               </div>
               <p>
                 Trong ví dụ này, <code>customer_id</code> trong bảng
@@ -2040,11 +2007,13 @@
             <div class="example">
               <h4>Ví dụ:</h4>
               <div class="code-block">
-                CREATE TABLE employees ( employee_id INT PRIMARY KEY,
-                employee_name NVARCHAR(100) NOT NULL, age INT CHECK (age >= 18
-                AND age <= 65), -- Tuổi từ 18-65 salary DECIMAL(10,2) CHECK
-                (salary > 0), -- Lương phải dương department VARCHAR(50) CHECK
-                (department IN ('IT', 'HR', 'Finance', 'Marketing')) );
+                <span class="keyword">CREATE TABLE</span> <span class="table">employees</span> (
+                    <span class="column">employee_id</span> <span class="datatype">INT</span> <span class="keyword">PRIMARY KEY</span>,
+                    <span class="column">employee_name</span> <span class="datatype">NVARCHAR</span>(<span class="number">100</span>) <span class="keyword">NOT NULL</span>,
+                    <span class="column">age</span> <span class="datatype">INT</span> <span class="keyword">CHECK</span> (<span class="column">age</span> <span class="operator">=</span> <span class="number">18</span> <span class="keyword">AND</span> <span class="column">age</span> <span class="operator"><=</span> <span class="number">65</span>), <span class="comment">-- Tuổi từ 18-65</span>
+                    <span class="column">salary</span> <span class="datatype">DECIMAL</span>(<span class="number">10</span>,<span class="number">2</span>) <span class="keyword">CHECK</span> (<span class="column">salary</span> <span class="operator">></span> <span class="number">0</span>), <span class="comment">-- Lương phải dương</span>
+                    <span class="column">department</span> <span class="datatype">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">CHECK</span> (<span class="column">department</span> <span class="keyword">IN</span> (<span class="string">'IT'</span>, <span class="string">'HR'</span>, <span class="string">'Finance'</span>, <span class="string">'Marketing'</span>))
+                );
               </div>
               <p>
                 Cột <code>age</code> chỉ chấp nhận các giá trị từ 18 đến 65 tuổi
@@ -2062,12 +2031,14 @@
             <div class="example">
               <h4>Ví dụ:</h4>
               <div class="code-block">
-                CREATE TABLE orders ( order_id INT IDENTITY(1,1) PRIMARY KEY,
-                customer_id INT, order_date DATE DEFAULT GETDATE(), -- Ngày đặt
-                hàng mặc định là hôm nay status VARCHAR(50) DEFAULT 'PENDING',
-                -- Trạng thái mặc định là 'PENDING' priority INT DEFAULT 1, --
-                Độ ưu tiên mặc định là 1 notes NVARCHAR(500) DEFAULT N'Không có
-                ghi chú' );
+                <span class="keyword">CREATE TABLE</span> <span class="table">orders</span> (
+                    <span class="column">order_id</span> <span class="datatype">INT</span> <span class="keyword">IDENTITY</span>(<span class="number">1</span>,<span class="number">1</span>) <span class="keyword">PRIMARY KEY</span>,
+                    <span class="column">customer_id</span> <span class="datatype">INT</span>,
+                    <span class="column">order_date</span> <span class="datatype">DATE</span> <span class="keyword">DEFAULT</span> <span class="function">GETDATE</span>(), <span class="comment">-- Ngày đặt hàng mặc định là hôm nay</span>
+                    <span class="column">status</span> <span class="datatype">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">DEFAULT</span> <span class="string">'PENDING'</span>, <span class="comment">-- Trạng thái mặc định là 'PENDING'</span>
+                    <span class="column">priority</span> <span class="datatype">INT</span> <span class="keyword">DEFAULT</span> <span class="number">1</span>, <span class="comment">-- Độ ưu tiên mặc định là 1</span>
+                    <span class="column">notes</span> <span class="datatype">NVARCHAR</span>(<span class="number">500</span>) <span class="keyword">DEFAULT</span> <span class="string">N'Không có ghi chú'</span>
+                );
               </div>
               <p>
                 Nếu không khai báo trạng thái, nó sẽ tự động được đặt là
@@ -2165,23 +2136,24 @@
             <div class="info-box">
               <h4>📝 Cú pháp:</h4>
               <div class="code-block">
-                CREATE TABLE table_name ( column1 datatype CONSTRAINT_1, column2
-                datatype CONSTRAINT_2, ... CONSTRAINT_N );
+                <span class="keyword">CREATE TABLE</span> <span class="table">table_name</span> (
+                    <span class="column">column1</span> <span class="datatype">datatype</span> <span class="keyword">CONSTRAINT_1</span>,
+                    <span class="column">column2</span> <span class="datatype">datatype</span> <span class="keyword">CONSTRAINT_2</span>,
+                    ...
+                    <span class="keyword">CONSTRAINT_N</span>
+                );
               </div>
             </div>
 
             <div class="example">
               <h4>Ví dụ chi tiết:</h4>
               <div class="code-block">
-                CREATE TABLE products ( product_id INT PRIMARY KEY, -- Ràng buộc
-                PRIMARY KEY ngay trên dòng định nghĩa cột product_name
-                VARCHAR(50) NOT NULL, -- Ràng buộc NOT NULL ngay trên dòng định
-                nghĩa cột price DECIMAL(10, 2) CHECK (price > 0), -- Ràng buộc
-                CHECK trên dòng định nghĩa cột category_id INT, created_date
-                DATE DEFAULT GETDATE(), -- Ràng buộc DEFAULT CONSTRAINT
-                UQ_product_name UNIQUE (product_name), -- Ràng buộc UNIQUE được
-                định nghĩa ở cuối CONSTRAINT FK_category FOREIGN KEY
-                (category_id) REFERENCES categories(category_id) );
+                <span class="keyword">CREATE TABLE</span> <span class="table">products</span> (
+                    <span class="column">product_id</span> <span class="datatype">INT</span> <span class="keyword">PRIMARY KEY</span>,
+                    <span class="column">product_name</span> <span class="datatype">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT NULL</span> <span class="keyword">UNIQUE</span>,
+                    <span class="column">price</span> <span class="datatype">DECIMAL</span>(<span class="number">10</span>, <span class="number">2</span>) <span class="keyword">CHECK</span> (<span class="column">price</span> <span class="operator">></span> <span class="number">0</span>),
+                    <span class="column">category_id</span> <span class="datatype">INT</span> <span class="keyword">REFERENCES</span> <span class="table">categories</span>(<span class="column">category_id</span>)
+                );
               </div>
               <p>Trong ví dụ này:</p>
               <ul>
@@ -2335,21 +2307,27 @@
             <div class="example">
               <h4>Ví dụ tổng hợp - Kịch bản thực tế:</h4>
               <div class="code-block">
-                -- Bước 1: Tạo bảng với các constraint cơ bản CREATE TABLE
-                employees ( employee_id INT IDENTITY(1,1) PRIMARY KEY,
-                employee_name NVARCHAR(100) NOT NULL, email NVARCHAR(100),
-                hire_date DATE DEFAULT GETDATE(), salary DECIMAL(10,2) ); --
-                Bước 2: Sau đó thêm các constraint bổ sung khi có yêu cầu nghiệp
-                vụ mới ALTER TABLE employees ADD CONSTRAINT UQ_employee_email
-                UNIQUE (email); ALTER TABLE employees ADD CONSTRAINT
-                CHK_salary_range CHECK (salary BETWEEN 5000000 AND 50000000); --
-                Bước 3: Thêm bảng phòng ban và liên kết CREATE TABLE departments
-                ( department_id INT PRIMARY KEY, department_name NVARCHAR(50)
-                NOT NULL ); -- Thêm cột department_id vào bảng employees ALTER
-                TABLE employees ADD department_id INT; -- Tạo foreign key
-                constraint ALTER TABLE employees ADD CONSTRAINT
-                FK_employee_department FOREIGN KEY (department_id) REFERENCES
-                departments(department_id);
+                <span class="keyword">CREATE TABLE</span> <span class="table">employees</span> (
+                    <span class="column">employee_id</span> <span class="datatype">INT</span> <span class="keyword">IDENTITY</span>(<span class="number">1</span>,<span class="number">1</span>) <span class="keyword">PRIMARY KEY</span>,
+                    <span class="column">employee_name</span> <span class="datatype">NVARCHAR</span>(<span class="number">100</span>) <span class="keyword">NOT NULL</span>,
+                    <span class="column">email</span> <span class="datatype">NVARCHAR</span>(<span class="number">100</span>) <span class="keyword">UNIQUE</span>,
+                    <span class="column">salary</span> <span class="datatype">DECIMAL</span>(<span class="number">10</span>,<span class="number">2</span>) <span class="keyword">CHECK</span> (<span class="column">salary</span> <span class="operator">></span> <span class="number">0</span>)
+                );
+              </div>
+                
+                <span class="comment">-- Bước 3: Thêm bảng phòng ban và liên kết</span>
+                <span class="keyword">CREATE TABLE</span> <span class="table">departments</span> (
+                    <span class="column">department_id</span> <span class="datatype">INT</span> <span class="keyword">PRIMARY KEY</span>,
+                    <span class="column">department_name</span> <span class="datatype">NVARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT NULL</span>
+                );
+                
+                <span class="comment">-- Thêm cột department_id vào bảng employees</span>
+                <span class="keyword">ALTER TABLE</span> <span class="table">employees</span> <span class="keyword">ADD</span> <span class="column">department_id</span> <span class="datatype">INT</span>;
+                
+                <span class="comment">-- Tạo foreign key constraint</span>
+                <span class="keyword">ALTER TABLE</span> <span class="table">employees</span> 
+                <span class="keyword">ADD CONSTRAINT</span> <span class="column">FK_employee_department</span> 
+                <span class="keyword">FOREIGN KEY</span> (<span class="column">department_id</span>) <span class="keyword">REFERENCES</span> <span class="table">departments</span>(<span class="column">department_id</span>);
               </div>
             </div>
 
@@ -2412,19 +2390,20 @@
                 nhất.
               </p>
               <div class="code-block">
-                CREATE TABLE customers ( customer_id INT IDENTITY(1,1) PRIMARY
-                KEY, customer_name NVARCHAR(100) NOT NULL, email VARCHAR(255)
-                UNIQUE, -- Áp dụng ràng buộc UNIQUE cho cột email phone_number
-                VARCHAR(20) UNIQUE, -- Số điện thoại cũng phải duy nhất address
-                NVARCHAR(200), registration_date DATE DEFAULT GETDATE() ); --
-                Thêm dữ liệu hợp lệ INSERT INTO customers (customer_name, email,
-                phone_number, address) VALUES (N'Nguyễn Văn A', 'a@email.com',
-                '0123456789', N'123 Lê Lợi, TP.HCM'), (N'Trần Thị B',
-                'b@email.com', '0987654321', N'456 Nguyễn Huệ, Hà Nội'), (N'Phạm
-                Văn C', NULL, NULL, N'789 Trần Hưng Đạo, Đà Nẵng'); -- NULL được
-                phép -- Lệnh này sẽ LỖI vì email đã tồn tại -- INSERT INTO
-                customers (customer_name, email) VALUES (N'Lê Thị D',
-                'a@email.com');
+                <span class="keyword">CREATE TABLE</span> <span class="table">customers</span> (
+                    <span class="column">customer_id</span> <span class="datatype">INT</span> <span class="keyword">IDENTITY</span>(<span class="number">1</span>,<span class="number">1</span>) <span class="keyword">PRIMARY KEY</span>,
+                    <span class="column">customer_name</span> <span class="datatype">NVARCHAR</span>(<span class="number">100</span>) <span class="keyword">NOT NULL</span>,
+                    <span class="column">email</span> <span class="datatype">VARCHAR</span>(<span class="number">255</span>) <span class="keyword">UNIQUE</span>, <span class="comment">-- Áp dụng ràng buộc UNIQUE cho cột email</span>
+                    <span class="column">phone_number</span> <span class="datatype">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">UNIQUE</span>, <span class="comment">-- Số điện thoại cũng phải duy nhất</span>
+                    <span class="column">address</span> <span class="datatype">NVARCHAR</span>(<span class="number">200</span>),
+                    <span class="column">registration_date</span> <span class="datatype">DATE</span> <span class="keyword">DEFAULT</span> <span class="function">GETDATE</span>()
+                );
+                
+                <span class="comment">-- Thêm dữ liệu hợp lệ</span>
+                <span class="keyword">INSERT INTO</span> <span class="table">customers</span> (<span class="column">customer_name</span>, <span class="column">email</span>, <span class="column">phone_number</span>) 
+                <span class="keyword">VALUES</span> 
+                    (<span class="string">N'Nguyễn Văn A'</span>, <span class="string">'a@email.com'</span>, <span class="string">'0123456789'</span>),
+                    (<span class="string">N'Trần Thị B'</span>, <span class="string">'b@email.com'</span>, <span class="string">'0987654321'</span>);
               </div>
               <p>
                 Nếu bạn cố gắng thêm hai khách hàng có cùng địa chỉ email, hệ
@@ -2465,17 +2444,20 @@
                 hàng sẽ có một ID duy nhất và không thể để trống.
               </p>
               <div class="code-block">
-                CREATE TABLE stores ( store_id INT IDENTITY(1,1) PRIMARY KEY, --
-                store_id là khóa chính store_name NVARCHAR(100) NOT NULL,
-                manager_name NVARCHAR(100), location NVARCHAR(255), phone
-                VARCHAR(20), opening_date DATE DEFAULT GETDATE() ); -- Thêm dữ
-                liệu INSERT INTO stores (store_name, manager_name, location,
-                phone) VALUES (N'Cửa hàng Quận 1', N'Nguyễn Văn Manager', N'123
-                Đường Đồng Khởi, Q1, TP.HCM', '028-1234567'), (N'Cửa hàng Hà
-                Nội', N'Trần Thị Director', N'456 Phố Hàng Bài, Hoàn Kiếm, Hà
-                Nội', '024-7654321'); -- Lệnh này sẽ LỖI vì cố gắng chèn
-                store_id trùng (nếu tắt IDENTITY) -- INSERT INTO stores
-                (store_id, store_name) VALUES (1, N'Cửa hàng khác');
+                <span class="keyword">CREATE TABLE</span> <span class="table">stores</span> (
+                    <span class="column">store_id</span> <span class="datatype">INT</span> <span class="keyword">IDENTITY</span>(<span class="number">1</span>,<span class="number">1</span>) <span class="keyword">PRIMARY KEY</span>, <span class="comment">-- store_id là khóa chính</span>
+                    <span class="column">store_name</span> <span class="datatype">NVARCHAR</span>(<span class="number">100</span>) <span class="keyword">NOT NULL</span>,
+                    <span class="column">manager_name</span> <span class="datatype">NVARCHAR</span>(<span class="number">100</span>),
+                    <span class="column">location</span> <span class="datatype">NVARCHAR</span>(<span class="number">255</span>),
+                    <span class="column">phone</span> <span class="datatype">VARCHAR</span>(<span class="number">20</span>),
+                    <span class="column">opening_date</span> <span class="datatype">DATE</span> <span class="keyword">DEFAULT</span> <span class="function">GETDATE</span>()
+                );
+                
+                <span class="comment">-- Thêm dữ liệu</span>
+                <span class="keyword">INSERT INTO</span> <span class="table">stores</span> (<span class="column">store_name</span>, <span class="column">manager_name</span>) 
+                <span class="keyword">VALUES</span> 
+                    (<span class="string">N'Cửa hàng Quận 1'</span>, <span class="string">N'Nguyễn Văn Manager'</span>),
+                    (<span class="string">N'Cửa hàng Hà Nội'</span>, <span class="string">N'Trần Thị Director'</span>);
               </div>
               <p>
                 Nếu bạn cố gắng chèn hai cửa hàng với cùng
@@ -2485,7 +2467,7 @@
             </div>
 
             <h3>📊 Tóm tắt sự khác biệt</h3>
-            <table>
+            <table class="comparison-table">
               <thead>
                 <tr>
                   <th>Đặc điểm</th>
@@ -2749,7 +2731,7 @@
             <div class="example">
               <h4>Cú pháp cơ bản:</h4>
               <div class="code-block">
-                CREATE INDEX index_name ON table_name(column1, column2, ...);
+                <span class="keyword">CREATE INDEX</span> <span class="column">index_name</span> <span class="keyword">ON</span> <span class="table">table_name</span>(<span class="column">column1</span>, <span class="column">column2</span>, ...);
               </div>
             </div>
 
@@ -2760,9 +2742,11 @@
                 <code>customers</code>:
               </p>
               <div class="code-block">
-                CREATE INDEX idx_customer_name ON customers(last_name); -- Truy
-                vấn sẽ nhanh hơn: SELECT * FROM customers WHERE last_name =
-                N'Nguyễn';
+                <span class="keyword">CREATE INDEX</span> <span class="column">idx_customer_name</span> <span class="keyword">ON</span> <span class="table">customers</span>(<span class="column">last_name</span>);
+                
+                <span class="comment">-- Truy vấn sẽ nhanh hơn:</span>
+                <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> <span class="table">customers</span> 
+                <span class="keyword">WHERE</span> <span class="column">last_name</span> <span class="operator">=</span> <span class="string">N'Nguyễn'</span>;
               </div>
             </div>
 
@@ -2773,14 +2757,18 @@
                 <code>department_id</code> của bảng <code>employees</code>:
               </p>
               <div class="code-block">
-                CREATE INDEX idx_name_department ON employees(first_name,
-                department_id); -- Index này sẽ giúp tăng tốc các truy vấn như:
-                SELECT * FROM employees WHERE first_name = N'Văn' AND
-                department_id = 10; -- Hoặc chỉ tìm theo first_name (cột đầu
-                tiên của index): SELECT * FROM employees WHERE first_name =
-                N'Văn'; -- Nhưng KHÔNG hiệu quả cho truy vấn chỉ theo
-                department_id: -- SELECT * FROM employees WHERE department_id =
-                10; -- Không tối ưu
+                <span class="keyword">CREATE INDEX</span> <span class="column">idx_name_department</span> <span class="keyword">ON</span> <span class="table">employees</span>(<span class="column">first_name</span>, <span class="column">department_id</span>);
+                
+                <span class="comment">-- Index này sẽ giúp tăng tốc các truy vấn như:</span>
+                <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> <span class="table">employees</span> 
+                <span class="keyword">WHERE</span> <span class="column">first_name</span> <span class="operator">=</span> <span class="string">N'Văn'</span> <span class="keyword">AND</span> <span class="column">department_id</span> <span class="operator">=</span> <span class="number">10</span>;
+                
+                <span class="comment">-- Hoặc chỉ tìm theo first_name (cột đầu tiên của index):</span>
+                <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> <span class="table">employees</span> 
+                <span class="keyword">WHERE</span> <span class="column">first_name</span> <span class="operator">=</span> <span class="string">N'Văn'</span>;
+                
+                <span class="comment">-- Nhưng KHÔNG hiệu quả cho truy vấn chỉ theo department_id:
+                -- SELECT * FROM employees WHERE department_id = 10; -- Không tối ưu</span>
               </div>
             </div>
 
@@ -2841,17 +2829,29 @@
             <div class="example">
               <h4>So sánh hiệu suất với và không có Index:</h4>
               <div class="code-block">
-                -- Tạo bảng mẫu với dữ liệu lớn CREATE TABLE sales_records (
-                sale_id INT IDENTITY(1,1) PRIMARY KEY, customer_id INT,
-                product_id INT, sale_date DATE, amount DECIMAL(10,2), region
-                NVARCHAR(50) ); -- Chèn 100,000 bản ghi mẫu -- INSERT INTO
-                sales_records ... (giả sử có 100k records) -- TRƯỚC khi tạo
-                index - chậm (Table Scan) SELECT * FROM sales_records WHERE
-                customer_id = 12345 AND sale_date >= '2025-01-01'; -- Tạo index
-                phù hợp CREATE INDEX idx_customer_date ON
-                sales_records(customer_id, sale_date); -- SAU khi tạo index -
-                nhanh hơn nhiều (Index Seek) SELECT * FROM sales_records WHERE
-                customer_id = 12345 AND sale_date >= '2025-01-01';
+                <span class="comment">-- Tạo bảng mẫu với dữ liệu lớn</span>
+                <span class="keyword">CREATE TABLE</span> <span class="table">sales_records</span> (
+                    <span class="column">sale_id</span> <span class="datatype">INT</span> <span class="keyword">IDENTITY</span>(<span class="number">1</span>,<span class="number">1</span>) <span class="keyword">PRIMARY KEY</span>,
+                    <span class="column">customer_id</span> <span class="datatype">INT</span>,
+                    <span class="column">product_id</span> <span class="datatype">INT</span>,
+                    <span class="column">sale_date</span> <span class="datatype">DATE</span>,
+                    <span class="column">amount</span> <span class="datatype">DECIMAL</span>(<span class="number">10</span>,<span class="number">2</span>),
+                    <span class="column">region</span> <span class="datatype">NVARCHAR</span>(<span class="number">50</span>)
+                );
+                
+                <span class="comment">-- Chèn 100,000 bản ghi mẫu
+                -- INSERT INTO sales_records ... (giả sử có 100k records)</span>
+                
+                <span class="comment">-- TRƯỚC khi tạo index - chậm (Table Scan)</span>
+                <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> <span class="table">sales_records</span> 
+                <span class="keyword">WHERE</span> <span class="column">customer_id</span> <span class="operator">=</span> <span class="number">12345</span> <span class="keyword">AND</span> <span class="column">sale_date</span> <span class="operator">>=</span> <span class="string">'2025-01-01'</span>;
+                
+                <span class="comment">-- Tạo index phù hợp</span>
+                <span class="keyword">CREATE INDEX</span> <span class="column">idx_customer_date</span> <span class="keyword">ON</span> <span class="table">sales_records</span>(<span class="column">customer_id</span>, <span class="column">sale_date</span>);
+                
+                <span class="comment">-- SAU khi tạo index - nhanh hơn nhiều (Index Seek)</span>
+                <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> <span class="table">sales_records</span> 
+                <span class="keyword">WHERE</span> <span class="column">customer_id</span> <span class="operator">=</span> <span class="number">12345</span> <span class="keyword">AND</span> <span class="column">sale_date</span> <span class="operator">>=</span> <span class="string">'2025-01-01'</span>;
               </div>
             </div>
 
@@ -2956,7 +2956,7 @@
                 nhóm tổng hợp.
               </p>
               <div class="code-block">
-                GROUP BY c.customer_id, c.first_name, c.last_name
+                <span class="keyword">GROUP BY</span> <span class="column">c.customer_id</span>, <span class="column">c.first_name</span>, <span class="column">c.last_name</span>
               </div>
               <p>
                 <b>Kết quả:</b> Bước này sẽ nhóm tất cả các hàng của cùng một
@@ -2970,7 +2970,8 @@
                 Lọc các nhóm được tạo ra ở bước GROUP BY dựa trên một điều kiện
                 tổng hợp (ví dụ: COUNT, SUM, AVG).
               </p>
-              <div class="code-block">HAVING COUNT(o.order_id) > 2</div>
+              <div class="code-block">
+                <span class="keyword">HAVING</span> <span class="function">COUNT</span>(<span class="column">o.order_id</span>) <span class="operator">></span> <span class="number">2</span></div>
               <p>
                 <b>Kết quả:</b> Bước này sẽ lọc ra chỉ những nhóm khách hàng đã
                 đặt nhiều hơn 2 đơn hàng.
@@ -3013,11 +3014,14 @@
             <div class="example">
               <h4>Câu lệnh SQL phức tạp:</h4>
               <div class="code-block">
-                SELECT c.customer_id, c.first_name, c.last_name,
-                COUNT(o.order_id) AS total_orders FROM customers c JOIN orders o
-                ON c.customer_id = o.customer_id WHERE o.order_date >=
-                '2024-01-01' GROUP BY c.customer_id, c.first_name, c.last_name
-                HAVING COUNT(o.order_id) > 2 ORDER BY total_orders DESC;
+                <span class="keyword">SELECT</span> <span class="column">c.customer_id</span>, <span class="column">c.first_name</span>, <span class="column">c.last_name</span>,
+                       <span class="function">COUNT</span>(<span class="column">o.order_id</span>) <span class="keyword">AS</span> <span class="column">total_orders</span>
+                <span class="keyword">FROM</span> <span class="table">customers</span> <span class="column">c</span>
+                <span class="keyword">JOIN</span> <span class="table">orders</span> <span class="column">o</span> <span class="keyword">ON</span> <span class="column">c.customer_id</span> <span class="operator">=</span> <span class="column">o.customer_id</span>
+                <span class="keyword">WHERE</span> <span class="column">o.order_date</span> <span class="operator">>=</span> <span class="string">'2024-01-01'</span>
+                <span class="keyword">GROUP BY</span> <span class="column">c.customer_id</span>, <span class="column">c.first_name</span>, <span class="column">c.last_name</span>
+                <span class="keyword">HAVING</span> <span class="function">COUNT</span>(<span class="column">o.order_id</span>) <span class="operator">></span> <span class="number">2</span>
+                <span class="keyword">ORDER BY</span> <span class="column">total_orders</span> <span class="keyword">DESC</span>;
               </div>
             </div>
 
@@ -3216,9 +3220,10 @@
                 lớn hơn 10.
               </p>
               <div class="code-block">
-                SELECT store_id, COUNT(product_id) AS total_products FROM stocks
-                GROUP BY store_id HAVING COUNT(product_id) > 10; -- Lọc các nhóm
-                có tổng số sản phẩm > 10
+                <span class="keyword">SELECT</span> <span class="column">store_id</span>, <span class="function">COUNT</span>(<span class="column">product_id</span>) <span class="keyword">AS</span> <span class="column">total_products</span> 
+                <span class="keyword">FROM</span> <span class="table">stocks</span>
+                <span class="keyword">GROUP BY</span> <span class="column">store_id</span> 
+                <span class="keyword">HAVING</span> <span class="function">COUNT</span>(<span class="column">product_id</span>) <span class="operator">></span> <span class="number">10</span>; <span class="comment">-- Lọc các nhóm có tổng số sản phẩm > 10</span>
               </div>
               <p>
                 <b>Giải thích:</b> Ở đây, GROUP BY sẽ nhóm các sản phẩm theo
@@ -3228,7 +3233,7 @@
             </div>
 
             <h3>📋 Tóm tắt sự khác biệt</h3>
-            <table>
+            <table class="comparison-table">
               <thead>
                 <tr>
                   <th>Đặc điểm</th>
@@ -3278,10 +3283,11 @@
                 hơn 10 và chỉ tính những sản phẩm có giá dưới 5000:
               </p>
               <div class="code-block">
-                SELECT store_id, COUNT(product_id) AS total_products FROM stocks
-                WHERE price < 5000 -- Bước 1: Lọc các hàng riêng lẻ (sản phẩm)
-                GROUP BY store_id HAVING COUNT(product_id) > 10; -- Bước 2: Lọc
-                các nhóm (cửa hàng)
+                <span class="keyword">SELECT</span> <span class="column">store_id</span>, <span class="function">COUNT</span>(<span class="column">product_id</span>) <span class="keyword">AS</span> <span class="column">total_products</span> 
+                <span class="keyword">FROM</span> <span class="table">stocks</span>
+                <span class="keyword">WHERE</span> <span class="column">price</span> <span class="operator"><</span> <span class="number">5000</span> <span class="comment">-- Bước 1: Lọc các hàng riêng lẻ (sản phẩm)</span>
+                <span class="keyword">GROUP BY</span> <span class="column">store_id</span> 
+                <span class="keyword">HAVING</span> <span class="function">COUNT</span>(<span class="column">product_id</span>) <span class="operator">></span> <span class="number">10</span>; <span class="comment">-- Bước 2: Lọc các nhóm (cửa hàng)</span>
               </div>
               <p><b>Quá trình thực thi:</b></p>
               <ol>
@@ -3301,23 +3307,42 @@
             <div class="example">
               <h4>Dữ liệu mẫu bảng stocks:</h4>
               <div class="code-block">
-                store_id | product_id | price 1 | 101 | 3000 1 | 102 | 7000 --
-                Bị loại bỏ bởi WHERE 1 | 103 | 4000 1 | 104 | 2000 2 | 201 |
-                4500 2 | 202 | 6000 -- Bị loại bỏ bởi WHERE 3 | 301 | 1000 3 |
-                302 | 2000
+                <span class="column">store_id</span> | <span class="column">product_id</span> | <span class="column">price</span> 
+                <span class="number">1</span> | <span class="number">101</span> | <span class="number">3000</span> 
+                <span class="number">1</span> | <span class="number">102</span> | <span class="number">7000</span> <span class="comment">-- Bị loại bỏ bởi WHERE</span> 
+                <span class="number">1</span> | <span class="number">103</span> | <span class="number">4000</span> 
+                <span class="number">1</span> | <span class="number">104</span> | <span class="number">2000</span> 
+                <span class="number">2</span> | <span class="number">201</span> | <span class="number">4500</span> 
+                <span class="number">2</span> | <span class="number">202</span> | <span class="number">6000</span> <span class="comment">-- Bị loại bỏ bởi WHERE</span> 
+                <span class="number">3</span> | <span class="number">301</span> | <span class="number">1000</span> 
+                <span class="number">3</span> | <span class="number">302</span> | <span class="number">2000</span>
               </div>
             </div>
 
             <div class="example">
               <h4>Kết quả từng bước:</h4>
               <div class="code-block">
-                -- Sau WHERE (price < 5000): store_id | product_id | price 1 |
-                101 | 3000 1 | 103 | 4000 1 | 104 | 2000 2 | 201 | 4500 3 | 301
-                | 1000 3 | 302 | 2000 -- Sau GROUP BY store_id: store_id |
-                total_products 1 | 3 2 | 1 3 | 2 -- Sau HAVING COUNT(product_id)
-                > 10: (Không có kết quả vì không cửa hàng nào có > 10 sản phẩm)
-                -- Nếu thay đổi điều kiện HAVING thành > 2: store_id |
-                total_products 1 | 3
+                <span class="comment">-- Sau WHERE (price < 5000):</span>
+                <span class="column">store_id</span> | <span class="column">product_id</span> | <span class="column">price</span> 
+                <span class="number">1</span> | <span class="number">101</span> | <span class="number">3000</span> 
+                <span class="number">1</span> | <span class="number">103</span> | <span class="number">4000</span> 
+                <span class="number">1</span> | <span class="number">104</span> | <span class="number">2000</span> 
+                <span class="number">2</span> | <span class="number">201</span> | <span class="number">4500</span> 
+                <span class="number">3</span> | <span class="number">301</span> | <span class="number">1000</span> 
+                <span class="number">3</span> | <span class="number">302</span> | <span class="number">2000</span>
+                
+                <span class="comment">-- Sau GROUP BY store_id:</span>
+                <span class="column">store_id</span> | <span class="column">total_products</span> 
+                <span class="number">1</span> | <span class="number">3</span> 
+                <span class="number">2</span> | <span class="number">1</span> 
+                <span class="number">3</span> | <span class="number">2</span>
+                
+                <span class="comment">-- Sau HAVING COUNT(product_id) > 10:</span>
+                <span class="comment">(Không có kết quả vì không cửa hàng nào có > 10 sản phẩm)</span>
+                
+                <span class="comment">-- Nếu thay đổi điều kiện HAVING thành > 2:</span>
+                <span class="column">store_id</span> | <span class="column">total_products</span> 
+                <span class="number">1</span> | <span class="number">3</span>
               </div>
             </div>
 
@@ -3325,20 +3350,30 @@
             <div class="info-box">
               <h4>❌ Lỗi sử dụng hàm tổng hợp trong WHERE:</h4>
               <div class="code-block">
-                -- SAI: Không thể dùng COUNT() trong WHERE SELECT store_id,
-                COUNT(product_id) FROM stocks WHERE COUNT(product_id) > 10 --
-                LỖI! GROUP BY store_id; -- ĐÚNG: Phải dùng HAVING SELECT
-                store_id, COUNT(product_id) FROM stocks GROUP BY store_id HAVING
-                COUNT(product_id) > 10; -- ĐÚNG!
+                <span class="comment">-- SAI: Không thể dùng COUNT() trong WHERE</span>
+                <span class="keyword">SELECT</span> <span class="column">store_id</span>, <span class="function">COUNT</span>(<span class="column">product_id</span>) 
+                <span class="keyword">FROM</span> <span class="table">stocks</span> 
+                <span class="keyword">WHERE</span> <span class="function">COUNT</span>(<span class="column">product_id</span>) <span class="operator">></span> <span class="number">10</span> <span class="comment">-- LỖI!</span>
+                <span class="keyword">GROUP BY</span> <span class="column">store_id</span>;
+                
+                <span class="comment">-- ĐÚNG: Phải dùng HAVING</span>
+                <span class="keyword">SELECT</span> <span class="column">store_id</span>, <span class="function">COUNT</span>(<span class="column">product_id</span>) 
+                <span class="keyword">FROM</span> <span class="table">stocks</span> 
+                <span class="keyword">GROUP BY</span> <span class="column">store_id</span> 
+                <span class="keyword">HAVING</span> <span class="function">COUNT</span>(<span class="column">product_id</span>) <span class="operator">></span> <span class="number">10</span>; <span class="comment">-- ĐÚNG!</span>
               </div>
             </div>
 
             <div class="info-box">
               <h4>❌ Lỗi sử dụng HAVING không có GROUP BY:</h4>
               <div class="code-block">
-                -- SAI: HAVING cần phải có GROUP BY SELECT * FROM stocks HAVING
-                price > 1000; -- LỖI! -- ĐÚNG: Dùng WHERE cho điều kiện hàng đơn
-                lẻ SELECT * FROM stocks WHERE price > 1000; -- ĐÚNG!
+                <span class="comment">-- SAI: HAVING cần phải có GROUP BY</span>
+                <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> <span class="table">stocks</span> 
+                <span class="keyword">HAVING</span> <span class="column">price</span> <span class="operator">></span> <span class="number">1000</span>; <span class="comment">-- LỖI!</span>
+                
+                <span class="comment">-- ĐÚNG: Dùng WHERE cho điều kiện hàng đơn lẻ</span>
+                <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> <span class="table">stocks</span> 
+                <span class="keyword">WHERE</span> <span class="column">price</span> <span class="operator">></span> <span class="number">1000</span>; <span class="comment">-- ĐÚNG!</span>
               </div>
             </div>
 
@@ -3367,14 +3402,16 @@
             <div class="example">
               <h4>Ví dụ tối ưu:</h4>
               <div class="code-block">
-                -- Tìm cửa hàng có nhiều sản phẩm điện tử (category_id = 1) đắt
-                tiền SELECT s.store_id, s.store_name, COUNT(st.product_id) AS
-                expensive_electronics FROM stores s JOIN stocks st ON s.store_id
-                = st.store_id JOIN products p ON st.product_id = p.product_id
-                WHERE p.category_id = 1 -- Lọc sản phẩm điện tử trước AND
-                st.price > 10000 -- Lọc sản phẩm đắt tiền trước GROUP BY
-                s.store_id, s.store_name HAVING COUNT(st.product_id) >= 5 -- Lọc
-                cửa hàng có >= 5 sản phẩm ORDER BY expensive_electronics DESC;
+                <span class="comment">-- Tìm cửa hàng có nhiều sản phẩm điện tử (category_id = 1) đắt tiền</span>
+                <span class="keyword">SELECT</span> <span class="column">s.store_id</span>, <span class="column">s.store_name</span>, <span class="function">COUNT</span>(<span class="column">st.product_id</span>) <span class="keyword">AS</span> <span class="column">expensive_electronics</span> 
+                <span class="keyword">FROM</span> <span class="table">stores</span> <span class="keyword">s</span> 
+                <span class="keyword">JOIN</span> <span class="table">stocks</span> <span class="keyword">st</span> <span class="keyword">ON</span> <span class="column">s.store_id</span> <span class="operator">=</span> <span class="column">st.store_id</span> 
+                <span class="keyword">JOIN</span> <span class="table">products</span> <span class="keyword">p</span> <span class="keyword">ON</span> <span class="column">st.product_id</span> <span class="operator">=</span> <span class="column">p.product_id</span> 
+                <span class="keyword">WHERE</span> <span class="column">p.category_id</span> <span class="operator">=</span> <span class="number">1</span> <span class="comment">-- Lọc sản phẩm điện tử trước</span>
+                  <span class="keyword">AND</span> <span class="column">st.price</span> <span class="operator">></span> <span class="number">10000</span> <span class="comment">-- Lọc sản phẩm đắt tiền trước</span>
+                <span class="keyword">GROUP BY</span> <span class="column">s.store_id</span>, <span class="column">s.store_name</span> 
+                <span class="keyword">HAVING</span> <span class="function">COUNT</span>(<span class="column">st.product_id</span>) <span class="operator">>=</span> <span class="number">5</span> <span class="comment">-- Lọc cửa hàng có >= 5 sản phẩm</span>
+                <span class="keyword">ORDER BY</span> <span class="column">expensive_electronics</span> <span class="keyword">DESC</span>;
               </div>
             </div>
           </section>
@@ -3421,11 +3458,19 @@
                 nhau:
               </p>
               <div class="code-block">
-                -- UNION - Loại bỏ trùng lặp SELECT product_name FROM products
-                WHERE category_id = 1 UNION SELECT product_name FROM products
-                WHERE category_id = 2; -- UNION ALL - Giữ tất cả hàng SELECT
-                product_name FROM products WHERE category_id = 1 UNION ALL
-                SELECT product_name FROM products WHERE category_id = 2;
+                <span class="comment">-- UNION - Loại bỏ trùng lặp</span>
+                <span class="keyword">SELECT</span> <span class="column">product_name</span> <span class="keyword">FROM</span> <span class="table">products</span>
+                <span class="keyword">WHERE</span> <span class="column">category_id</span> <span class="operator">=</span> <span class="number">1</span> 
+                <span class="keyword">UNION</span> 
+                <span class="keyword">SELECT</span> <span class="column">product_name</span> <span class="keyword">FROM</span> <span class="table">products</span>
+                <span class="keyword">WHERE</span> <span class="column">category_id</span> <span class="operator">=</span> <span class="number">2</span>;
+                
+                <span class="comment">-- UNION ALL - Giữ tất cả hàng</span>
+                <span class="keyword">SELECT</span> <span class="column">product_name</span> <span class="keyword">FROM</span> <span class="table">products</span>
+                <span class="keyword">WHERE</span> <span class="column">category_id</span> <span class="operator">=</span> <span class="number">1</span> 
+                <span class="keyword">UNION ALL</span> 
+                <span class="keyword">SELECT</span> <span class="column">product_name</span> <span class="keyword">FROM</span> <span class="table">products</span>
+                <span class="keyword">WHERE</span> <span class="column">category_id</span> <span class="operator">=</span> <span class="number">2</span>;
               </div>
               <p>
                 <b>Kết quả:</b> Trả về danh sách tất cả các sản phẩm thuộc cả
@@ -3438,13 +3483,16 @@
             <div class="example">
               <h4>Ví dụ thực tế - Danh sách khách hàng VIP:</h4>
               <div class="code-block">
-                -- Kết hợp khách hàng có nhiều đơn hàng và khách hàng chi tiêu
-                cao SELECT customer_id, customer_name, 'Frequent Buyer' AS
-                vip_type FROM customers c WHERE (SELECT COUNT(*) FROM orders
-                WHERE customer_id = c.customer_id) > 10 UNION SELECT
-                customer_id, customer_name, 'High Spender' AS vip_type FROM
-                customers c WHERE (SELECT SUM(total_amount) FROM orders WHERE
-                customer_id = c.customer_id) > 100000;
+                <span class="comment">-- Kết hợp khách hàng có nhiều đơn hàng và khách hàng chi tiêu cao</span>
+                <span class="keyword">SELECT</span> <span class="column">customer_id</span>, <span class="column">customer_name</span>, <span class="string">'Frequent Buyer'</span> <span class="keyword">AS</span> <span class="column">vip_type</span> 
+                <span class="keyword">FROM</span> <span class="table">customers</span> <span class="keyword">c</span> 
+                <span class="keyword">WHERE</span> (<span class="keyword">SELECT</span> <span class="function">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> <span class="table">orders</span>
+                       <span class="keyword">WHERE</span> <span class="column">customer_id</span> <span class="operator">=</span> <span class="column">c.customer_id</span>) <span class="operator">></span> <span class="number">10</span> 
+                <span class="keyword">UNION</span> 
+                <span class="keyword">SELECT</span> <span class="column">customer_id</span>, <span class="column">customer_name</span>, <span class="string">'High Spender'</span> <span class="keyword">AS</span> <span class="column">vip_type</span> 
+                <span class="keyword">FROM</span> <span class="table">customers</span> <span class="keyword">c</span> 
+                <span class="keyword">WHERE</span> (<span class="keyword">SELECT</span> <span class="function">SUM</span>(<span class="column">total_amount</span>) <span class="keyword">FROM</span> <span class="table">orders</span> 
+                       <span class="keyword">WHERE</span> <span class="column">customer_id</span> <span class="operator">=</span> <span class="column">c.customer_id</span>) <span class="operator">></span> <span class="number">100000</span>;
               </div>
             </div>
 
@@ -3485,14 +3533,18 @@
                 new_stocks với các cập nhật:
               </p>
               <div class="code-block">
-                MERGE INTO stocks AS target -- Bảng đích USING new_stocks AS
-                source -- Bảng nguồn ON target.product_id = source.product_id --
-                Điều kiện khớp WHEN MATCHED THEN UPDATE SET target.quantity =
-                source.quantity, target.last_updated = GETDATE() WHEN NOT
-                MATCHED BY TARGET THEN INSERT (product_id, quantity,
-                last_updated) VALUES (source.product_id, source.quantity,
-                GETDATE()) WHEN NOT MATCHED BY SOURCE THEN DELETE; -- Xóa sản
-                phẩm không còn trong nguồn
+                <span class="keyword">MERGE INTO</span> <span class="table">stocks</span> <span class="keyword">AS</span> <span class="keyword">target</span> <span class="comment">-- Bảng đích</span>
+                <span class="keyword">USING</span> <span class="table">new_stocks</span> <span class="keyword">AS</span> <span class="keyword">source</span> <span class="comment">-- Bảng nguồn</span>
+                <span class="keyword">ON</span> <span class="column">target.product_id</span> <span class="operator">=</span> <span class="column">source.product_id</span> <span class="comment">-- Điều kiện khớp</span>
+                <span class="keyword">WHEN MATCHED THEN</span> 
+                  <span class="keyword">UPDATE SET</span> 
+                    <span class="column">target.quantity</span> <span class="operator">=</span> <span class="column">source.quantity</span>,
+                    <span class="column">target.last_updated</span> <span class="operator">=</span> <span class="function">GETDATE</span>()
+                <span class="keyword">WHEN NOT MATCHED BY TARGET THEN</span> 
+                  <span class="keyword">INSERT</span> (<span class="column">product_id</span>, <span class="column">quantity</span>, <span class="column">last_updated</span>)
+                  <span class="keyword">VALUES</span> (<span class="column">source.product_id</span>, <span class="column">source.quantity</span>, <span class="function">GETDATE</span>())
+                <span class="keyword">WHEN NOT MATCHED BY SOURCE THEN</span> 
+                  <span class="keyword">DELETE</span>; <span class="comment">-- Xóa sản phẩm không còn trong nguồn</span>
               </div>
               <p>
                 <b>Giải thích:</b> Lệnh này sẽ kiểm tra từng sản phẩm trong
@@ -3505,16 +3557,20 @@
             <div class="example">
               <h4>Ví dụ thực tế - Đồng bộ thông tin nhân viên:</h4>
               <div class="code-block">
-                MERGE employees AS target USING employee_updates AS source ON
-                target.employee_id = source.employee_id WHEN MATCHED AND
-                source.action = 'UPDATE' THEN UPDATE SET target.salary =
-                source.salary, target.department_id = source.department_id,
-                target.updated_date = GETDATE() WHEN MATCHED AND source.action =
-                'DELETE' THEN DELETE WHEN NOT MATCHED AND source.action =
-                'INSERT' THEN INSERT (employee_id, employee_name, salary,
-                department_id, hire_date) VALUES (source.employee_id,
-                source.employee_name, source.salary, source.department_id,
-                GETDATE());
+                <span class="keyword">MERGE</span> <span class="table">employees</span> <span class="keyword">AS</span> <span class="keyword">target</span> 
+                <span class="keyword">USING</span> <span class="table">employee_updates</span> <span class="keyword">AS</span> <span class="keyword">source</span> 
+                <span class="keyword">ON</span> <span class="column">target.employee_id</span> <span class="operator">=</span> <span class="column">source.employee_id</span> 
+                <span class="keyword">WHEN MATCHED AND</span> <span class="column">source.action</span> <span class="operator">=</span> <span class="string">'UPDATE'</span> <span class="keyword">THEN</span> 
+                  <span class="keyword">UPDATE SET</span> 
+                    <span class="column">target.salary</span> <span class="operator">=</span> <span class="column">source.salary</span>,
+                    <span class="column">target.department_id</span> <span class="operator">=</span> <span class="column">source.department_id</span>,
+                    <span class="column">target.updated_date</span> <span class="operator">=</span> <span class="function">GETDATE</span>()
+                <span class="keyword">WHEN MATCHED AND</span> <span class="column">source.action</span> <span class="operator">=</span> <span class="string">'DELETE'</span> <span class="keyword">THEN</span> 
+                  <span class="keyword">DELETE</span> 
+                <span class="keyword">WHEN NOT MATCHED AND</span> <span class="column">source.action</span> <span class="operator">=</span> <span class="string">'INSERT'</span> <span class="keyword">THEN</span> 
+                  <span class="keyword">INSERT</span> (<span class="column">employee_id</span>, <span class="column">employee_name</span>, <span class="column">salary</span>, <span class="column">department_id</span>, <span class="column">hire_date</span>)
+                  <span class="keyword">VALUES</span> (<span class="column">source.employee_id</span>, <span class="column">source.employee_name</span>, <span class="column">source.salary</span>, 
+                          <span class="column">source.department_id</span>, <span class="function">GETDATE</span>());
               </div>
             </div>
 
@@ -3547,11 +3603,15 @@
                 với mỗi năm là một cột:
               </p>
               <div class="code-block">
-                SELECT store_id, [2022], [2023], [2024] FROM ( SELECT store_id,
-                model_year, list_price FROM products ) AS src -- Bảng nguồn tạm
-                PIVOT ( SUM(list_price) -- Hàm tổng hợp FOR model_year IN
-                ([2022], [2023], [2024]) -- Cột sẽ được xoay thành tiêu đề ) AS
-                pvt;
+                <span class="keyword">SELECT</span> <span class="column">store_id</span>, [<span class="number">2022</span>], [<span class="number">2023</span>], [<span class="number">2024</span>] 
+                <span class="keyword">FROM</span> (
+                  <span class="keyword">SELECT</span> <span class="column">store_id</span>, <span class="column">model_year</span>, <span class="column">list_price</span> 
+                  <span class="keyword">FROM</span> <span class="table">products</span>
+                ) <span class="keyword">AS</span> <span class="keyword">src</span> <span class="comment">-- Bảng nguồn tạm</span>
+                <span class="keyword">PIVOT</span> (
+                  <span class="function">SUM</span>(<span class="column">list_price</span>) <span class="comment">-- Hàm tổng hợp</span>
+                  <span class="keyword">FOR</span> <span class="column">model_year</span> <span class="keyword">IN</span> ([<span class="number">2022</span>], [<span class="number">2023</span>], [<span class="number">2024</span>]) <span class="comment">-- Cột sẽ được xoay thành tiêu đề</span>
+                ) <span class="keyword">AS</span> <span class="keyword">pvt</span>;
               </div>
               <p>
                 <b>Kết quả:</b> Tạo ra các cột mới có tên là [2022], [2023],
@@ -3563,13 +3623,18 @@
             <div class="example">
               <h4>Ví dụ thực tế - Báo cáo doanh thu theo tháng:</h4>
               <div class="code-block">
-                -- Dữ liệu gốc dạng hàng SELECT employee_name, [January],
-                [February], [March], [April], [May], [June] FROM ( SELECT
-                e.employee_name, DATENAME(month, o.order_date) AS month_name,
-                o.total_amount FROM employees e JOIN orders o ON e.employee_id =
-                o.sales_rep_id WHERE YEAR(o.order_date) = 2024 ) AS source_data
-                PIVOT ( SUM(total_amount) FOR month_name IN ([January],
-                [February], [March], [April], [May], [June]) ) AS monthly_sales;
+                <span class="comment">-- Dữ liệu gốc dạng hàng</span>
+                <span class="keyword">SELECT</span> <span class="column">employee_name</span>, [<span class="column">January</span>], [<span class="column">February</span>], [<span class="column">March</span>], [<span class="column">April</span>], [<span class="column">May</span>], [<span class="column">June</span>] 
+                <span class="keyword">FROM</span> (
+                  <span class="keyword">SELECT</span> <span class="column">e.employee_name</span>, <span class="function">DATENAME</span>(<span class="datatype">month</span>, <span class="column">o.order_date</span>) <span class="keyword">AS</span> <span class="column">month_name</span>, <span class="column">o.total_amount</span> 
+                  <span class="keyword">FROM</span> <span class="table">employees</span> <span class="keyword">e</span> 
+                  <span class="keyword">JOIN</span> <span class="table">orders</span> <span class="keyword">o</span> <span class="keyword">ON</span> <span class="column">e.employee_id</span> <span class="operator">=</span> <span class="column">o.sales_rep_id</span> 
+                  <span class="keyword">WHERE</span> <span class="function">YEAR</span>(<span class="column">o.order_date</span>) <span class="operator">=</span> <span class="number">2024</span>
+                ) <span class="keyword">AS</span> <span class="keyword">source_data</span> 
+                <span class="keyword">PIVOT</span> (
+                  <span class="function">SUM</span>(<span class="column">total_amount</span>) 
+                  <span class="keyword">FOR</span> <span class="column">month_name</span> <span class="keyword">IN</span> ([<span class="column">January</span>], [<span class="column">February</span>], [<span class="column">March</span>], [<span class="column">April</span>], [<span class="column">May</span>], [<span class="column">June</span>])
+                ) <span class="keyword">AS</span> <span class="keyword">monthly_sales</span>;
               </div>
             </div>
 
@@ -3599,8 +3664,9 @@
                 thuộc danh mục 3:
               </p>
               <div class="code-block">
-                SELECT product_name FROM products WHERE brand_id = 1 INTERSECT
-                SELECT product_name FROM products WHERE category_id = 3;
+                <span class="keyword">SELECT</span> <span class="column">product_name</span> <span class="keyword">FROM</span> <span class="table">products</span> <span class="keyword">WHERE</span> <span class="column">brand_id</span> <span class="operator">=</span> <span class="number">1</span> 
+                <span class="keyword">INTERSECT</span> 
+                <span class="keyword">SELECT</span> <span class="column">product_name</span> <span class="keyword">FROM</span> <span class="table">products</span> <span class="keyword">WHERE</span> <span class="column">category_id</span> <span class="operator">=</span> <span class="number">3</span>;
               </div>
               <p>
                 <b>Kết quả:</b> Trả về danh sách các sản phẩm có tên xuất hiện
@@ -3612,17 +3678,21 @@
             <div class="example">
               <h4>Ví dụ thực tế - Tìm khách hàng chung:</h4>
               <div class="code-block">
-                -- Tìm khách hàng vừa mua online vừa mua tại cửa hàng SELECT
-                customer_id, customer_name FROM customers c JOIN orders o ON
-                c.customer_id = o.customer_id WHERE o.order_type = 'Online'
-                INTERSECT SELECT customer_id, customer_name FROM customers c
-                JOIN orders o ON c.customer_id = o.customer_id WHERE
-                o.order_type = 'In-Store';
+                <span class="comment">-- Tìm khách hàng vừa mua online vừa mua tại cửa hàng</span>
+                <span class="keyword">SELECT</span> <span class="column">customer_id</span>, <span class="column">customer_name</span> 
+                <span class="keyword">FROM</span> <span class="table">customers</span> <span class="keyword">c</span> 
+                <span class="keyword">JOIN</span> <span class="table">orders</span> <span class="keyword">o</span> <span class="keyword">ON</span> <span class="column">c.customer_id</span> <span class="operator">=</span> <span class="column">o.customer_id</span> 
+                <span class="keyword">WHERE</span> <span class="column">o.order_type</span> <span class="operator">=</span> <span class="string">'Online'</span> 
+                <span class="keyword">INTERSECT</span> 
+                <span class="keyword">SELECT</span> <span class="column">customer_id</span>, <span class="column">customer_name</span> 
+                <span class="keyword">FROM</span> <span class="table">customers</span> <span class="keyword">c</span> 
+                <span class="keyword">JOIN</span> <span class="table">orders</span> <span class="keyword">o</span> <span class="keyword">ON</span> <span class="column">c.customer_id</span> <span class="operator">=</span> <span class="column">o.customer_id</span> 
+                <span class="keyword">WHERE</span> <span class="column">o.order_type</span> <span class="operator">=</span> <span class="string">'In-Store'</span>;
               </div>
             </div>
 
             <h3>📊 So sánh các phép toán</h3>
-            <table>
+            <table class="comparison-table">
               <thead>
                 <tr>
                   <th>Phép toán</th>
@@ -4022,7 +4092,7 @@
             </div>
 
             <h3>📊 Tóm tắt Chuẩn hóa</h3>
-            <table>
+            <table class="comparison-table">
               <thead>
                 <tr>
                   <th>Dạng chuẩn</th>
@@ -4301,7 +4371,7 @@
             </div>
 
             <h3>📊 Các hàm tổng hợp thường dùng với GROUP BY</h3>
-            <table>
+            <table class="comparison-table">
               <thead>
                 <tr>
                   <th>Hàm</th>
@@ -4801,9 +4871,9 @@
                 tương ứng.
               </p>
               <div class="code-block">
-                SELECT o.order_id, c.first_name, c.last_name, o.order_date,
-                o.total_amount FROM orders o INNER JOIN customers c ON
-                o.customer_id = c.customer_id;
+                <span class="keyword">SELECT</span> <span class="column">o.order_id</span>, <span class="column">c.first_name</span>, <span class="column">c.last_name</span>, <span class="column">o.order_date</span>, <span class="column">o.total_amount</span>
+                <span class="keyword">FROM</span> <span class="table">orders</span> <span class="column">o</span>
+                <span class="keyword">INNER JOIN</span> <span class="table">customers</span> <span class="column">c</span> <span class="keyword">ON</span> <span class="column">o.customer_id</span> <span class="operator">=</span> <span class="column">c.customer_id</span>;
               </div>
               <p>
                 <b>Kết quả:</b> Lệnh này sẽ chỉ trả về các đơn hàng có
@@ -4816,13 +4886,15 @@
             <div class="example">
               <h4>INNER JOIN với nhiều bảng:</h4>
               <div class="code-block">
-                -- Lấy thông tin đơn hàng, khách hàng và chi tiết sản phẩm
-                SELECT o.order_id, c.customer_name, p.product_name, od.quantity,
-                od.unit_price, (od.quantity * od.unit_price) AS line_total FROM
-                orders o INNER JOIN customers c ON o.customer_id = c.customer_id
-                INNER JOIN order_details od ON o.order_id = od.order_id INNER
-                JOIN products p ON od.product_id = p.product_id WHERE
-                o.order_date >= '2024-01-01';
+                <span class="comment">-- Lấy thông tin đơn hàng, khách hàng và chi tiết sản phẩm</span>
+                <span class="keyword">SELECT</span> <span class="column">o.order_id</span>, <span class="column">c.customer_name</span>, <span class="column">p.product_name</span>, 
+                       <span class="column">od.quantity</span>, <span class="column">od.unit_price</span>, 
+                       (<span class="column">od.quantity</span> <span class="operator">*</span> <span class="column">od.unit_price</span>) <span class="keyword">AS</span> <span class="column">line_total</span>
+                <span class="keyword">FROM</span> <span class="table">orders</span> <span class="column">o</span>
+                <span class="keyword">INNER JOIN</span> <span class="table">customers</span> <span class="column">c</span> <span class="keyword">ON</span> <span class="column">o.customer_id</span> <span class="operator">=</span> <span class="column">c.customer_id</span>
+                <span class="keyword">INNER JOIN</span> <span class="table">order_details</span> <span class="column">od</span> <span class="keyword">ON</span> <span class="column">o.order_id</span> <span class="operator">=</span> <span class="column">od.order_id</span>
+                <span class="keyword">INNER JOIN</span> <span class="table">products</span> <span class="column">p</span> <span class="keyword">ON</span> <span class="column">od.product_id</span> <span class="operator">=</span> <span class="column">p.product_id</span>
+                <span class="keyword">WHERE</span> <span class="column">o.order_date</span> <span class="operator">>=</span> <span class="string">'2024-01-01'</span>;
               </div>
             </div>
 
@@ -4847,9 +4919,11 @@
                 (nếu có).
               </p>
               <div class="code-block">
-                SELECT c.customer_id, c.first_name, c.last_name, o.order_id,
-                o.order_date, o.total_amount FROM customers c LEFT JOIN orders o
-                ON c.customer_id = o.customer_id ORDER BY c.customer_id;
+                <span class="keyword">SELECT</span> <span class="column">c.customer_id</span>, <span class="column">c.first_name</span>, <span class="column">c.last_name</span>, 
+                       <span class="column">o.order_id</span>, <span class="column">o.order_date</span>, <span class="column">o.total_amount</span>
+                <span class="keyword">FROM</span> <span class="table">customers</span> <span class="column">c</span>
+                <span class="keyword">LEFT JOIN</span> <span class="table">orders</span> <span class="column">o</span> <span class="keyword">ON</span> <span class="column">c.customer_id</span> <span class="operator">=</span> <span class="column">o.customer_id</span>
+                <span class="keyword">ORDER BY</span> <span class="column">c.customer_id</span>;
               </div>
               <p>
                 <b>Kết quả:</b> Lệnh này sẽ trả về tất cả khách hàng. Những
@@ -4862,11 +4936,11 @@
             <div class="example">
               <h4>Tìm khách hàng chưa có đơn hàng:</h4>
               <div class="code-block">
-                -- Sử dụng LEFT JOIN để tìm khách hàng chưa mua hàng SELECT
-                c.customer_id, c.customer_name, c.email FROM customers c LEFT
-                JOIN orders o ON c.customer_id = o.customer_id WHERE
-                o.customer_id IS NULL; -- Điều kiện để tìm khách hàng chưa có
-                đơn hàng
+                <span class="comment">-- Sử dụng LEFT JOIN để tìm khách hàng chưa mua hàng</span>
+                <span class="keyword">SELECT</span> <span class="column">c.customer_id</span>, <span class="column">c.customer_name</span>, <span class="column">c.email</span>
+                <span class="keyword">FROM</span> <span class="table">customers</span> <span class="column">c</span>
+                <span class="keyword">LEFT JOIN</span> <span class="table">orders</span> <span class="column">o</span> <span class="keyword">ON</span> <span class="column">c.customer_id</span> <span class="operator">=</span> <span class="column">o.customer_id</span>
+                <span class="keyword">WHERE</span> <span class="column">o.customer_id</span> <span class="keyword">IS NULL</span>; <span class="comment">-- Điều kiện để tìm khách hàng chưa có đơn hàng</span>
               </div>
             </div>
 
@@ -4890,9 +4964,10 @@
                 của họ.
               </p>
               <div class="code-block">
-                SELECT o.order_id, o.order_date, c.first_name, c.last_name,
-                c.email FROM customers c RIGHT JOIN orders o ON c.customer_id =
-                o.customer_id ORDER BY o.order_id;
+                <span class="keyword">SELECT</span> <span class="column">o.order_id</span>, <span class="column">o.order_date</span>, <span class="column">c.first_name</span>, <span class="column">c.last_name</span>, <span class="column">c.email</span>
+                <span class="keyword">FROM</span> <span class="table">customers</span> <span class="column">c</span>
+                <span class="keyword">RIGHT JOIN</span> <span class="table">orders</span> <span class="column">o</span> <span class="keyword">ON</span> <span class="column">c.customer_id</span> <span class="operator">=</span> <span class="column">o.customer_id</span>
+                <span class="keyword">ORDER BY</span> <span class="column">o.order_id</span>;
               </div>
               <p>
                 <b>Kết quả:</b> Lệnh này sẽ trả về tất cả các đơn hàng. Nếu có
@@ -4929,10 +5004,11 @@
                 có khách hàng.
               </p>
               <div class="code-block">
-                SELECT c.customer_id, c.first_name, c.last_name, o.order_id,
-                o.order_date, o.total_amount FROM customers c FULL JOIN orders o
-                ON c.customer_id = o.customer_id ORDER BY c.customer_id,
-                o.order_id;
+                <span class="keyword">SELECT</span> <span class="column">c.customer_id</span>, <span class="column">c.first_name</span>, <span class="column">c.last_name</span>, 
+                       <span class="column">o.order_id</span>, <span class="column">o.order_date</span>, <span class="column">o.total_amount</span>
+                <span class="keyword">FROM</span> <span class="table">customers</span> <span class="column">c</span>
+                <span class="keyword">FULL JOIN</span> <span class="table">orders</span> <span class="column">o</span> <span class="keyword">ON</span> <span class="column">c.customer_id</span> <span class="operator">=</span> <span class="column">o.customer_id</span>
+                <span class="keyword">ORDER BY</span> <span class="column">c.customer_id</span>, <span class="column">o.order_id</span>;
               </div>
               <p>
                 <b>Kết quả:</b> Hiển thị tất cả khách hàng (kể cả chưa có đơn
@@ -4943,13 +5019,17 @@
             <div class="example">
               <h4>Phân tích dữ liệu với FULL JOIN:</h4>
               <div class="code-block">
-                -- Tìm tất cả các trường hợp bất thường SELECT CASE WHEN
-                c.customer_id IS NULL THEN 'Đơn hàng không có khách hàng' WHEN
-                o.order_id IS NULL THEN 'Khách hàng chưa có đơn hàng' ELSE 'Dữ
-                liệu bình thường' END AS data_status, c.customer_name,
-                o.order_id, o.total_amount FROM customers c FULL JOIN orders o
-                ON c.customer_id = o.customer_id WHERE c.customer_id IS NULL OR
-                o.order_id IS NULL;
+                <span class="comment">-- Tìm tất cả các trường hợp bất thường</span>
+                <span class="keyword">SELECT</span> 
+                    <span class="keyword">CASE</span> 
+                        <span class="keyword">WHEN</span> <span class="column">c.customer_id</span> <span class="keyword">IS NULL</span> <span class="keyword">THEN</span> <span class="string">'Đơn hàng không có khách hàng'</span>
+                        <span class="keyword">WHEN</span> <span class="column">o.order_id</span> <span class="keyword">IS NULL</span> <span class="keyword">THEN</span> <span class="string">'Khách hàng chưa có đơn hàng'</span>
+                        <span class="keyword">ELSE</span> <span class="string">'Dữ liệu bình thường'</span>
+                    <span class="keyword">END</span> <span class="keyword">AS</span> <span class="column">data_status</span>,
+                    <span class="column">c.customer_name</span>, <span class="column">o.order_id</span>, <span class="column">o.total_amount</span>
+                <span class="keyword">FROM</span> <span class="table">customers</span> <span class="column">c</span>
+                <span class="keyword">FULL JOIN</span> <span class="table">orders</span> <span class="column">o</span> <span class="keyword">ON</span> <span class="column">c.customer_id</span> <span class="operator">=</span> <span class="column">o.customer_id</span>
+                <span class="keyword">WHERE</span> <span class="column">c.customer_id</span> <span class="keyword">IS NULL</span> <span class="keyword">OR</span> <span class="column">o.order_id</span> <span class="keyword">IS NULL</span>;
               </div>
             </div>
 
@@ -4973,9 +5053,10 @@
                 các thương hiệu.
               </p>
               <div class="code-block">
-                SELECT p.product_name, b.brand_name, CONCAT(b.brand_name, ' - ',
-                p.product_name) AS full_product_name FROM products p CROSS JOIN
-                brands b;
+                <span class="keyword">SELECT</span> <span class="column">p.product_name</span>, <span class="column">b.brand_name</span>, 
+                       <span class="function">CONCAT</span>(<span class="column">b.brand_name</span>, <span class="string">' - '</span>, <span class="column">p.product_name</span>) <span class="keyword">AS</span> <span class="column">full_product_name</span>
+                <span class="keyword">FROM</span> <span class="table">products</span> <span class="column">p</span>
+                <span class="keyword">CROSS JOIN</span> <span class="table">brands</span> <span class="column">b</span>;
               </div>
               <p>
                 <b>Kết quả:</b> Nếu bảng products có 100 sản phẩm và bảng brands
@@ -4987,17 +5068,20 @@
             <div class="example">
               <h4>Ứng dụng thực tế của CROSS JOIN:</h4>
               <div class="code-block">
-                -- Tạo lịch làm việc cho tất cả nhân viên trong tháng SELECT
-                e.employee_name, d.work_date, 'Available' AS status FROM
-                employees e CROSS JOIN ( SELECT DATEADD(DAY, number,
-                '2025-01-01') AS work_date FROM master.dbo.spt_values WHERE type
-                = 'P' AND number < 31 ) d WHERE DATEPART(WEEKDAY, d.work_date)
-                NOT IN (1, 7); -- Loại bỏ chủ nhật và thứ 7
+                <span class="comment">-- Tạo lịch làm việc cho tất cả nhân viên trong tháng</span>
+                <span class="keyword">SELECT</span> <span class="column">e.employee_name</span>, <span class="column">d.work_date</span>, <span class="string">'Available'</span> <span class="keyword">AS</span> <span class="column">status</span>
+                <span class="keyword">FROM</span> <span class="table">employees</span> <span class="column">e</span>
+                <span class="keyword">CROSS JOIN</span> (
+                    <span class="keyword">SELECT</span> <span class="function">DATEADD</span>(<span class="keyword">DAY</span>, <span class="column">number</span>, <span class="string">'2025-01-01'</span>) <span class="keyword">AS</span> <span class="column">work_date</span>
+                    <span class="keyword">FROM</span> <span class="table">master.dbo.spt_values</span> 
+                    <span class="keyword">WHERE</span> <span class="column">type</span> <span class="operator">=</span> <span class="string">'P'</span> <span class="keyword">AND</span> <span class="column">number</span> <span class="operator"><</span> <span class="number">31</span>
+                ) <span class="column">d</span>
+                <span class="keyword">WHERE</span> <span class="function">DATEPART</span>(<span class="keyword">WEEKDAY</span>, <span class="column">d.work_date</span>) <span class="keyword">NOT IN</span> (<span class="number">1</span>, <span class="number">7</span>); <span class="comment">-- Loại bỏ chủ nhật và thứ 7</span>
               </div>
             </div>
 
             <h3>📊 So sánh các loại JOIN</h3>
-            <table>
+            <table class="comparison-table">
               <thead>
                 <tr>
                   <th>Loại JOIN</th>
@@ -5155,8 +5239,10 @@
             <h3>🔧 Cú pháp tạo VIEW</h3>
             <div class="highlight-box">
               <div class="code-block">
-                CREATE VIEW view_name AS SELECT column1, column2, ... FROM
-                table_name WHERE condition;
+                <span class="keyword">CREATE VIEW</span> <span class="table">view_name</span> <span class="keyword">AS</span>
+                <span class="keyword">SELECT</span> <span class="column">column1</span>, <span class="column">column2</span>, ...
+                <span class="keyword">FROM</span> <span class="table">table_name</span>
+                <span class="keyword">WHERE</span> <span class="column">condition</span>;
               </div>
             </div>
 
@@ -5208,10 +5294,11 @@
                 trình này.
               </p>
               <div class="code-block">
-                CREATE VIEW customer_orders AS SELECT c.customer_id,
-                c.first_name, c.last_name, c.email, o.order_id, o.order_date,
-                o.total_amount FROM customers c JOIN orders o ON c.customer_id =
-                o.customer_id;
+                <span class="keyword">CREATE VIEW</span> <span class="table">customer_orders</span> <span class="keyword">AS</span>
+                <span class="keyword">SELECT</span> <span class="column">c.customer_id</span>, <span class="column">c.first_name</span>, <span class="column">c.last_name</span>, <span class="column">c.email</span>,
+                       <span class="column">o.order_id</span>, <span class="column">o.order_date</span>, <span class="column">o.total_amount</span>
+                <span class="keyword">FROM</span> <span class="table">customers</span> <span class="column">c</span>
+                <span class="keyword">JOIN</span> <span class="table">orders</span> <span class="column">o</span> <span class="keyword">ON</span> <span class="column">c.customer_id</span> <span class="operator">=</span> <span class="column">o.customer_id</span>;
               </div>
 
               <h4>Giải thích:</h4>
@@ -5339,18 +5426,24 @@
             <div class="example">
               <h4>Sử dụng Table-Valued Functions thay cho VIEW có tham số:</h4>
               <div class="code-block">
-                -- Tạo function trả về table thay vì VIEW CREATE FUNCTION
-                get_orders_by_date(@start_date DATE, @end_date DATE) RETURNS
-                TABLE AS RETURN ( SELECT c.customer_name, o.order_id,
-                o.order_date, o.total_amount FROM customers c JOIN orders o ON
-                c.customer_id = o.customer_id WHERE o.order_date BETWEEN
-                @start_date AND @end_date ); -- Sử dụng function SELECT * FROM
-                get_orders_by_date('2024-01-01', '2024-12-31');
+                <span class="comment"></span>-- Tạo function trả về table thay vì VIEW</span>
+                <span class="keyword">CREATE FUNCTION</span> <span class="function">get_orders_by_date</span>(<span class="column">@start_date</span> <span class="datatype">DATE</span>, <span class="column">@end_date</span> <span class="datatype">DATE</span>) 
+                <span class="keyword">RETURNS TABLE</span> 
+                <span class="keyword">AS</span> 
+                <span class="keyword">RETURN</span> (
+                  <span class="keyword">SELECT</span> <span class="column">c.customer_name</span>, <span class="column">o.order_id</span>, <span class="column">o.order_date</span>, <span class="column">o.total_amount</span> 
+                  <span class="keyword">FROM</span> <span class="table">customers</span> <span class="keyword">c</span> 
+                  <span class="keyword">JOIN</span> <span class="table">orders</span> <span class="keyword">o</span> <span class="keyword">ON</span> <span class="column">c.customer_id</span> <span class="operator">=</span> <span class="column">o.customer_id</span> 
+                  <span class="keyword">WHERE</span> <span class="column">o.order_date</span> <span class="keyword">BETWEEN</span> <span class="column">@start_date</span> <span class="keyword">AND</span> <span class="column">@end_date</span>
+                );
+                
+                <span class="comment">-- Sử dụng function</span>
+                <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> <span class="function">get_orders_by_date</span>(<span class="string">'2024-01-01'</span>, <span class="string">'2024-12-31'</span>);
               </div>
             </div>
 
             <h3>⚖️ VIEW vs Bảng thật</h3>
-            <table>
+            <table class="comparison-table">
               <thead>
                 <tr>
                   <th>Đặc điểm</th>
@@ -5701,7 +5794,7 @@
             </div>
 
             <h3>⚖️ Subquery vs JOIN</h3>
-            <table>
+            <table class="comparison-table">
               <thead>
                 <tr>
                   <th>Tiêu chí</th>
@@ -6809,32 +6902,49 @@
             <div class="example">
               <h4>CASE trong SELECT:</h4>
               <div class="code-block">
-                -- Phân loại sản phẩm theo giá SELECT product_id, product_name,
-                list_price, CASE WHEN list_price > 1000 THEN 'High-end' WHEN
-                list_price BETWEEN 500 AND 1000 THEN 'Mid-range' WHEN list_price
-                BETWEEN 100 AND 499 THEN 'Budget' ELSE 'Economy' END AS
-                product_category, -- CASE với phép tính CASE WHEN list_price >
-                1000 THEN list_price * 0.05 -- 5% discount WHEN list_price > 500
-                THEN list_price * 0.03 -- 3% discount ELSE list_price * 0.01 --
-                1% discount END AS discount_amount FROM products;
+                <span class="comment">-- Phân loại sản phẩm theo giá</span>
+                <span class="keyword">SELECT</span> <span class="column">product_id</span>, <span class="column">product_name</span>, <span class="column">list_price</span>,
+                  <span class="keyword">CASE</span> 
+                    <span class="keyword">WHEN</span> <span class="column">list_price</span> <span class="operator">></span> <span class="number">1000</span> <span class="keyword">THEN</span> <span class="string">'High-end'</span>
+                    <span class="keyword">WHEN</span> <span class="column">list_price</span> <span class="keyword">BETWEEN</span> <span class="number">500</span> <span class="keyword">AND</span> <span class="number">1000</span> <span class="keyword">THEN</span> <span class="string">'Mid-range'</span>
+                    <span class="keyword">WHEN</span> <span class="column">list_price</span> <span class="keyword">BETWEEN</span> <span class="number">100</span> <span class="keyword">AND</span> <span class="number">499</span> <span class="keyword">THEN</span> <span class="string">'Budget'</span>
+                    <span class="keyword">ELSE</span> <span class="string">'Economy'</span>
+                  <span class="keyword">END</span> <span class="keyword">AS</span> <span class="column">product_category</span>,
+                  <span class="comment">-- CASE với phép tính</span>
+                  <span class="keyword">CASE</span> 
+                    <span class="keyword">WHEN</span> <span class="column">list_price</span> <span class="operator">></span> <span class="number">1000</span> <span class="keyword">THEN</span> <span class="column">list_price</span> <span class="operator">*</span> <span class="number">0.05</span> <span class="comment">-- 5% discount</span>
+                    <span class="keyword">WHEN</span> <span class="column">list_price</span> <span class="operator">></span> <span class="number">500</span> <span class="keyword">THEN</span> <span class="column">list_price</span> <span class="operator">*</span> <span class="number">0.03</span> <span class="comment">-- 3% discount</span>
+                    <span class="keyword">ELSE</span> <span class="column">list_price</span> <span class="operator">*</span> <span class="number">0.01</span> <span class="comment">-- 1% discount</span>
+                  <span class="keyword">END</span> <span class="keyword">AS</span> <span class="column">discount_amount</span>
+                <span class="keyword">FROM</span> <span class="table">products</span>;
               </div>
             </div>
 
             <div class="example">
               <h4>CASE trong Stored Procedure:</h4>
               <div class="code-block">
-                -- Procedure tính phí ship dựa trên trọng lượng và khoảng cách
-                CREATE PROCEDURE CalculateShippingFee @weight DECIMAL(10,2),
-                @distance INT, @shipping_fee DECIMAL(10,2) OUTPUT AS BEGIN SET
-                @shipping_fee = CASE WHEN @weight <= 1 AND @distance <= 50 THEN
-                20000 WHEN @weight <= 1 AND @distance <= 100 THEN 35000 WHEN
-                @weight <= 5 AND @distance <= 50 THEN 40000 WHEN @weight <= 5
-                AND @distance <= 100 THEN 60000 WHEN @weight <= 10 THEN 80000 +
-                (@distance * 500) ELSE 120000 + (@weight * 5000) + (@distance *
-                800) END; -- Log tính phí PRINT 'Trọng lượng: ' + CAST(@weight
-                AS VARCHAR) + 'kg'; PRINT 'Khoảng cách: ' + CAST(@distance AS
-                VARCHAR) + 'km'; PRINT 'Phí ship: ' + FORMAT(@shipping_fee,
-                'N0') + ' VND'; END;
+                <span class="comment">-- Procedure tính phí ship dựa trên trọng lượng và khoảng cách</span>
+                <span class="keyword">CREATE PROCEDURE</span> <span class="function">CalculateShippingFee</span> 
+                  <span class="column">@weight</span> <span class="datatype">DECIMAL</span>(<span class="number">10</span>,<span class="number">2</span>),
+                  <span class="column">@distance</span> <span class="datatype">INT</span>,
+                  <span class="column">@shipping_fee</span> <span class="datatype">DECIMAL</span>(<span class="number">10</span>,<span class="number">2</span>) <span class="keyword">OUTPUT</span>
+                <span class="keyword">AS</span>
+                <span class="keyword">BEGIN</span>
+                  <span class="keyword">SET</span> <span class="column">@shipping_fee</span> <span class="operator">=</span> 
+                    <span class="keyword">CASE</span> 
+                      <span class="keyword">WHEN</span> <span class="column">@weight</span> <span class="operator"><=</span> <span class="number">1</span> <span class="keyword">AND</span> <span class="column">@distance</span> <span class="operator"><=</span> <span class="number">50</span> <span class="keyword">THEN</span> <span class="number">20000</span>
+                      <span class="keyword">WHEN</span> <span class="column">@weight</span> <span class="operator"><=</span> <span class="number">1</span> <span class="keyword">AND</span> <span class="column">@distance</span> <span class="operator"><=</span> <span class="number">100</span> <span class="keyword">THEN</span> <span class="number">35000</span>
+                      <span class="keyword">WHEN</span> <span class="column">@weight</span> <span class="operator"><=</span> <span class="number">5</span> <span class="keyword">AND</span> <span class="column">@distance</span> <span class="operator"><=</span> <span class="number">50</span> <span class="keyword">THEN</span> <span class="number">40000</span>
+                      <span class="keyword">WHEN</span> <span class="column">@weight</span> <span class="operator"><=</span> <span class="number">5</span> <span class="keyword">AND</span> <span class="column">@distance</span> <span class="operator"><=</span> <span class="number">100</span> <span class="keyword">THEN</span> <span class="number">60000</span>
+                      <span class="keyword">WHEN</span> <span class="column">@weight</span> <span class="operator"><=</span> <span class="number">10</span> <span class="keyword">THEN</span> <span class="number">80000</span> <span class="operator">+</span> (<span class="column">@distance</span> <span class="operator">*</span> <span class="number">500</span>)
+                      <span class="keyword">ELSE</span> <span class="number">120000</span> <span class="operator">+</span> (<span class="column">@weight</span> <span class="operator">*</span> <span class="number">5000</span>) <span class="operator">+</span> (<span class="column">@distance</span> <span class="operator">*</span> <span class="number">800</span>)
+                    <span class="keyword">END</span>;
+                    
+                  <span class="comment">-- Log tính phí</span>
+                  <span class="keyword">PRINT</span> <span class="string">'Trọng lượng: '</span> <span class="operator">+</span> <span class="function">CAST</span>(<span class="column">@weight</span> <span class="keyword">AS</span> <span class="datatype">VARCHAR</span>) <span class="operator">+</span> <span class="string">'kg'</span>;
+                  <span class="keyword">PRINT</span> <span class="string">'Khoảng cách: '</span> <span class="operator">+</span> <span class="function">CAST</span>(<span class="column">@distance</span> <span class="keyword">AS</span> <span class="datatype">VARCHAR</span>) <span class="operator">+</span> <span class="string">'km'</span>;
+                  <span class="keyword">PRINT</span> <span class="string">'Phí ship: '</span> <span class="operator">+</span> <span class="function">FORMAT</span>(<span class="column">@shipping_fee</span>, <span class="string">'N0'</span>) <span class="operator">+</span> <span class="string">' VND'</span>;
+                <span class="keyword">END</span>;
               </div>
             </div>
 
@@ -6848,9 +6958,14 @@
             <div class="example">
               <h4>WHILE cơ bản:</h4>
               <div class="code-block">
-                -- Đếm từ 1 đến 5 DECLARE @counter INT = 1; WHILE @counter <= 5
-                BEGIN PRINT 'Số đếm: ' + CAST(@counter AS VARCHAR); SET @counter
-                = @counter + 1; END; PRINT 'Hoàn thành đếm!';
+                <span class="comment">-- Đếm từ 1 đến 5</span>
+                <span class="keyword">DECLARE</span> <span class="column">@counter</span> <span class="datatype">INT</span> <span class="operator">=</span> <span class="number">1</span>;
+                <span class="keyword">WHILE</span> <span class="column">@counter</span> <span class="operator"><=</span> <span class="number">5</span>
+                <span class="keyword">BEGIN</span>
+                  <span class="keyword">PRINT</span> <span class="string">'Số đếm: '</span> <span class="operator">+</span> <span class="function">CAST</span>(<span class="column">@counter</span> <span class="keyword">AS</span> <span class="datatype">VARCHAR</span>);
+                  <span class="keyword">SET</span> <span class="column">@counter</span> <span class="operator">=</span> <span class="column">@counter</span> <span class="operator">+</span> <span class="number">1</span>;
+                <span class="keyword">END</span>;
+                <span class="keyword">PRINT</span> <span class="string">'Hoàn thành đếm!'</span>;
               </div>
             </div>
 
@@ -7527,26 +7642,39 @@
                 Phí theo khoảng cách IF @distance > 50 SET @distance_fee =
                 (@distance - 50) * 500; -- 500/km sau 50km đầu -- Phí express IF
                 @express_delivery = 1 SET @express_fee = @base_fee * 0.5; --
-                +50% RETURN @base_fee + @weight_fee + @distance_fee +
-                @express_fee; END; -- 2. Table-Valued Function: Lấy sản phẩm
-                theo filter CREATE FUNCTION get_filtered_products( @category_id
-                INT = NULL, @min_price DECIMAL(10,2) = NULL, @max_price
-                DECIMAL(10,2) = NULL, @in_stock_only BIT = 0 ) RETURNS TABLE AS
-                RETURN ( SELECT p.product_id, p.product_name, p.list_price,
-                p.stock_quantity, c.category_name, b.brand_name FROM products p
-                INNER JOIN categories c ON p.category_id = c.category_id INNER
-                JOIN brands b ON p.brand_id = b.brand_id WHERE (@category_id IS
-                NULL OR p.category_id = @category_id) AND (@min_price IS NULL OR
-                p.list_price >= @min_price) AND (@max_price IS NULL OR
-                p.list_price <= @max_price) AND (@in_stock_only = 0 OR
-                p.stock_quantity > 0) ); -- 3. Sử dụng các UDF trong một query
-                thực tế SELECT p.product_name, p.list_price, p.stock_quantity,
-                dbo.calculate_tax(p.list_price) AS tax_amount, p.list_price +
-                dbo.calculate_tax(p.list_price) AS total_price,
-                dbo.calculate_shipping_fee(2.5, 75, 0) AS standard_shipping,
-                dbo.calculate_shipping_fee(2.5, 75, 1) AS express_shipping FROM
-                dbo.get_filtered_products(1, 100000, 500000, 1) p ORDER BY
-                p.list_price DESC;
+                <span class="operator"></span>+</span><span class="number">50</span><span class="operator">%</span> 
+                <span class="keyword">RETURN</span> <span class="column">@base_fee</span> <span class="operator">+</span> <span class="column">@weight_fee</span> <span class="operator">+</span> <span class="column">@distance_fee</span> <span class="operator">+</span> <span class="column">@express_fee</span>;
+                <span class="keyword">END</span>;
+
+                <span class="comment">-- 2. Table-Valued Function: Lấy sản phẩm theo filter</span>
+                <span class="keyword">CREATE FUNCTION</span> <span class="function">get_filtered_products</span>(
+                  <span class="column">@category_id</span> <span class="datatype">INT</span> <span class="operator">=</span> <span class="keyword">NULL</span>,
+                  <span class="column">@min_price</span> <span class="datatype">DECIMAL</span>(<span class="number">10</span>,<span class="number">2</span>) <span class="operator">=</span> <span class="keyword">NULL</span>,
+                  <span class="column">@max_price</span> <span class="datatype">DECIMAL</span>(<span class="number">10</span>,<span class="number">2</span>) <span class="operator">=</span> <span class="keyword">NULL</span>,
+                  <span class="column">@in_stock_only</span> <span class="datatype">BIT</span> <span class="operator">=</span> <span class="number">0</span>
+                ) 
+                <span class="keyword">RETURNS TABLE</span> 
+                <span class="keyword">AS</span> 
+                <span class="keyword">RETURN</span> (
+                  <span class="keyword">SELECT</span> <span class="column">p.product_id</span>, <span class="column">p.product_name</span>, <span class="column">p.list_price</span>, <span class="column">p.stock_quantity</span>, 
+                         <span class="column">c.category_name</span>, <span class="column">b.brand_name</span>
+                  <span class="keyword">FROM</span> <span class="table">products</span> <span class="keyword">p</span>
+                  <span class="keyword">INNER JOIN</span> <span class="table">categories</span> <span class="keyword">c</span> <span class="keyword">ON</span> <span class="column">p.category_id</span> <span class="operator">=</span> <span class="column">c.category_id</span>
+                  <span class="keyword">INNER JOIN</span> <span class="table">brands</span> <span class="keyword">b</span> <span class="keyword">ON</span> <span class="column">p.brand_id</span> <span class="operator">=</span> <span class="column">b.brand_id</span>
+                  <span class="keyword">WHERE</span> (<span class="column">@category_id</span> <span class="keyword">IS NULL</span> <span class="keyword">OR</span> <span class="column">p.category_id</span> <span class="operator">=</span> <span class="column">@category_id</span>)
+                    <span class="keyword">AND</span> (<span class="column">@min_price</span> <span class="keyword">IS NULL</span> <span class="keyword">OR</span> <span class="column">p.list_price</span> <span class="operator">>=</span> <span class="column">@min_price</span>)
+                    <span class="keyword">AND</span> (<span class="column">@max_price</span> <span class="keyword">IS NULL</span> <span class="keyword">OR</span> <span class="column">p.list_price</span> <span class="operator"><=</span> <span class="column">@max_price</span>)
+                    <span class="keyword">AND</span> (<span class="column">@in_stock_only</span> <span class="operator">=</span> <span class="number">0</span> <span class="keyword">OR</span> <span class="column">p.stock_quantity</span> <span class="operator">></span> <span class="number">0</span>)
+                );
+
+                <span class="comment">-- 3. Sử dụng các UDF trong một query thực tế</span>
+                <span class="keyword">SELECT</span> <span class="column">p.product_name</span>, <span class="column">p.list_price</span>, <span class="column">p.stock_quantity</span>,
+                       <span class="function">dbo.calculate_tax</span>(<span class="column">p.list_price</span>) <span class="keyword">AS</span> <span class="column">tax_amount</span>,
+                       <span class="column">p.list_price</span> <span class="operator">+</span> <span class="function">dbo.calculate_tax</span>(<span class="column">p.list_price</span>) <span class="keyword">AS</span> <span class="column">total_price</span>,
+                       <span class="function">dbo.calculate_shipping_fee</span>(<span class="number">2.5</span>, <span class="number">75</span>, <span class="number">0</span>) <span class="keyword">AS</span> <span class="column">standard_shipping</span>,
+                       <span class="function">dbo.calculate_shipping_fee</span>(<span class="number">2.5</span>, <span class="number">75</span>, <span class="number">1</span>) <span class="keyword">AS</span> <span class="column">express_shipping</span>
+                <span class="keyword">FROM</span> <span class="function">dbo.get_filtered_products</span>(<span class="number">1</span>, <span class="number">100000</span>, <span class="number">500000</span>, <span class="number">1</span>) <span class="keyword">p</span>
+                <span class="keyword">ORDER BY</span> <span class="column">p.list_price</span> <span class="keyword">DESC</span>;
               </div>
             </div>
 
@@ -7645,10 +7773,16 @@
             <div class="example">
               <p>Tạo một Stored Procedure để lấy tất cả sản phẩm:</p>
               <div class="code-block">
-                CREATE PROCEDURE get_products AS BEGIN SELECT product_id,
-                product_name, list_price, stock_quantity, category_id FROM
-                products ORDER BY product_name; END; -- Cách gọi EXEC
-                get_products;
+                <span class="keyword">CREATE PROCEDURE</span> <span class="function">get_products</span> 
+                <span class="keyword">AS</span>
+                <span class="keyword">BEGIN</span>
+                  <span class="keyword">SELECT</span> <span class="column">product_id</span>, <span class="column">product_name</span>, <span class="column">list_price</span>, <span class="column">stock_quantity</span>, <span class="column">category_id</span>
+                  <span class="keyword">FROM</span> <span class="table">products</span> 
+                  <span class="keyword">ORDER BY</span> <span class="column">product_name</span>;
+                <span class="keyword">END</span>;
+                
+                <span class="comment">-- Cách gọi</span>
+                <span class="keyword">EXEC</span> <span class="function">get_products</span>;
               </div>
             </div>
 
@@ -7656,73 +7790,121 @@
             <div class="example">
               <p>Tạo một Stored Procedure để lấy sản phẩm theo ID:</p>
               <div class="code-block">
-                CREATE PROCEDURE get_product_by_id @product_id INT AS BEGIN --
-                Kiểm tra tham số đầu vào IF @product_id IS NULL OR @product_id
-                <= 0 BEGIN RAISERROR('Product ID phải là số dương', 16, 1);
-                RETURN; END; SELECT p.product_id, p.product_name, p.list_price,
-                p.stock_quantity, c.category_name, b.brand_name FROM products p
-                LEFT JOIN categories c ON p.category_id = c.category_id LEFT
-                JOIN brands b ON p.brand_id = b.brand_id WHERE p.product_id =
-                @product_id; -- Kiểm tra xem có tìm thấy sản phẩm không IF
-                @@ROWCOUNT = 0 BEGIN PRINT 'Không tìm thấy sản phẩm với ID: ' +
-                CAST(@product_id AS VARCHAR); END; END; -- Cách gọi EXEC
-                get_product_by_id @product_id = 10; EXEC get_product_by_id 10;
-                -- Cách viết ngắn gọn
+                <span class="keyword">CREATE PROCEDURE</span> <span class="function">get_product_by_id</span> 
+                  <span class="column">@product_id</span> <span class="datatype">INT</span> 
+                <span class="keyword">AS</span>
+                <span class="keyword">BEGIN</span>
+                  <span class="comment">-- Kiểm tra tham số đầu vào</span>
+                  <span class="keyword">IF</span> <span class="column">@product_id</span> <span class="keyword">IS NULL</span> <span class="keyword">OR</span> <span class="column">@product_id</span> <span class="operator"><=</span> <span class="number">0</span>
+                  <span class="keyword">BEGIN</span>
+                    <span class="keyword">RAISERROR</span>(<span class="string">'Product ID phải là số dương'</span>, <span class="number">16</span>, <span class="number">1</span>);
+                    <span class="keyword">RETURN</span>;
+                  <span class="keyword">END</span>;
+                  
+                  <span class="keyword">SELECT</span> <span class="column">p.product_id</span>, <span class="column">p.product_name</span>, <span class="column">p.list_price</span>, <span class="column">p.stock_quantity</span>,
+                         <span class="column">c.category_name</span>, <span class="column">b.brand_name</span>
+                  <span class="keyword">FROM</span> <span class="table">products</span> <span class="keyword">p</span>
+                  <span class="keyword">LEFT JOIN</span> <span class="table">categories</span> <span class="keyword">c</span> <span class="keyword">ON</span> <span class="column">p.category_id</span> <span class="operator">=</span> <span class="column">c.category_id</span>
+                  <span class="keyword">LEFT JOIN</span> <span class="table">brands</span> <span class="keyword">b</span> <span class="keyword">ON</span> <span class="column">p.brand_id</span> <span class="operator">=</span> <span class="column">b.brand_id</span>
+                  <span class="keyword">WHERE</span> <span class="column">p.product_id</span> <span class="operator">=</span> <span class="column">@product_id</span>;
+                  
+                  <span class="comment">-- Kiểm tra xem có tìm thấy sản phẩm không</span>
+                  <span class="keyword">IF</span> <span class="function">@@ROWCOUNT</span> <span class="operator">=</span> <span class="number">0</span>
+                  <span class="keyword">BEGIN</span>
+                    <span class="keyword">PRINT</span> <span class="string">'Không tìm thấy sản phẩm với ID: '</span> <span class="operator">+</span> <span class="function">CAST</span>(<span class="column">@product_id</span> <span class="keyword">AS</span> <span class="datatype">VARCHAR</span>);
+                  <span class="keyword">END</span>;
+                <span class="keyword">END</span>;
+                
+                <span class="comment">-- Cách gọi</span>
+                <span class="keyword">EXEC</span> <span class="function">get_product_by_id</span> <span class="column">@product_id</span> <span class="operator">=</span> <span class="number">10</span>;
+                <span class="keyword">EXEC</span> <span class="function">get_product_by_id</span> <span class="number">10</span>; <span class="comment">-- Cách viết ngắn gọn</span>
               </div>
             </div>
 
             <h4>3️⃣ Thủ tục với tham số có giá trị mặc định</h4>
             <div class="example">
               <div class="code-block">
-                CREATE PROCEDURE get_products_by_category @category_id INT =
-                NULL, @min_price DECIMAL(10,2) = 0, @max_price DECIMAL(10,2) =
-                NULL, @order_by VARCHAR(50) = 'product_name' AS BEGIN --
-                Validate order by parameter IF @order_by NOT IN ('product_name',
-                'list_price', 'stock_quantity') BEGIN SET @order_by =
-                'product_name'; END; -- Dynamic query với parameters SELECT
-                p.product_id, p.product_name, p.list_price, p.stock_quantity,
-                c.category_name FROM products p INNER JOIN categories c ON
-                p.category_id = c.category_id WHERE (@category_id IS NULL OR
-                p.category_id = @category_id) AND p.list_price >= @min_price AND
-                (@max_price IS NULL OR p.list_price <= @max_price) ORDER BY CASE
-                WHEN @order_by = 'product_name' THEN p.product_name END, CASE
-                WHEN @order_by = 'list_price' THEN p.list_price END, CASE WHEN
-                @order_by = 'stock_quantity' THEN p.stock_quantity END; END; --
-                Các cách gọi khác nhau EXEC get_products_by_category; -- Lấy tất
-                cả EXEC get_products_by_category @category_id = 1; -- Theo
-                category EXEC get_products_by_category @min_price = 100000,
-                @max_price = 500000; -- Theo giá EXEC get_products_by_category
-                @category_id = 1, @order_by = 'list_price'; -- Với sắp xếp
+                <span class="keyword"></span>CREATE PROCEDURE</span> <span class="function">get_products_by_category</span> 
+                  <span class="column">@category_id</span> <span class="datatype">INT</span> <span class="operator">=</span> <span class="keyword">NULL</span>,
+                  <span class="column">@min_price</span> <span class="datatype">DECIMAL</span>(<span class="number">10</span>,<span class="number">2</span>) <span class="operator">=</span> <span class="number">0</span>,
+                  <span class="column">@max_price</span> <span class="datatype">DECIMAL</span>(<span class="number">10</span>,<span class="number">2</span>) <span class="operator">=</span> <span class="keyword">NULL</span>,
+                  <span class="column">@order_by</span> <span class="datatype">VARCHAR</span>(<span class="number">50</span>) <span class="operator">=</span> <span class="string">'product_name'</span>
+                <span class="keyword">AS</span>
+                <span class="keyword">BEGIN</span>
+                  <span class="comment">-- Validate order by parameter</span>
+                  <span class="keyword">IF</span> <span class="column">@order_by</span> <span class="keyword">NOT IN</span> (<span class="string">'product_name'</span>, <span class="string">'list_price'</span>, <span class="string">'stock_quantity'</span>)
+                  <span class="keyword">BEGIN</span>
+                    <span class="keyword">SET</span> <span class="column">@order_by</span> <span class="operator">=</span> <span class="string">'product_name'</span>;
+                  <span class="keyword">END</span>;
+                  
+                  <span class="comment">-- Dynamic query với parameters</span>
+                  <span class="keyword">SELECT</span> <span class="column">p.product_id</span>, <span class="column">p.product_name</span>, <span class="column">p.list_price</span>, <span class="column">p.stock_quantity</span>, <span class="column">c.category_name</span>
+                  <span class="keyword">FROM</span> <span class="table">products</span> <span class="keyword">p</span>
+                  <span class="keyword">INNER JOIN</span> <span class="table">categories</span> <span class="keyword">c</span> <span class="keyword">ON</span> <span class="column">p.category_id</span> <span class="operator">=</span> <span class="column">c.category_id</span>
+                  <span class="keyword">WHERE</span> (<span class="column">@category_id</span> <span class="keyword">IS NULL</span> <span class="keyword">OR</span> <span class="column">p.category_id</span> <span class="operator">=</span> <span class="column">@category_id</span>)
+                    <span class="keyword">AND</span> <span class="column">p.list_price</span> <span class="operator">>=</span> <span class="column">@min_price</span>
+                    <span class="keyword">AND</span> (<span class="column">@max_price</span> <span class="keyword">IS NULL</span> <span class="keyword">OR</span> <span class="column">p.list_price</span> <span class="operator"><=</span> <span class="column">@max_price</span>)
+                  <span class="keyword">ORDER BY</span> 
+                    <span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="column">@order_by</span> <span class="operator">=</span> <span class="string">'product_name'</span> <span class="keyword">THEN</span> <span class="column">p.product_name</span> <span class="keyword">END</span>,
+                    <span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="column">@order_by</span> <span class="operator">=</span> <span class="string">'list_price'</span> <span class="keyword">THEN</span> <span class="column">p.list_price</span> <span class="keyword">END</span>,
+                    <span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="column">@order_by</span> <span class="operator">=</span> <span class="string">'stock_quantity'</span> <span class="keyword">THEN</span> <span class="column">p.stock_quantity</span> <span class="keyword">END</span>;
+                <span class="keyword">END</span>;
+                
+                <span class="comment">-- Các cách gọi khác nhau</span>
+                <span class="keyword">EXEC</span> <span class="function">get_products_by_category</span>; <span class="comment">-- Lấy tất cả</span>
+                <span class="keyword">EXEC</span> <span class="function">get_products_by_category</span> <span class="column">@category_id</span> <span class="operator">=</span> <span class="number">1</span>; <span class="comment">-- Theo category</span>
+                <span class="keyword">EXEC</span> <span class="function">get_products_by_category</span> <span class="column">@min_price</span> <span class="operator">=</span> <span class="number">100000</span>, <span class="column">@max_price</span> <span class="operator">=</span> <span class="number">500000</span>; <span class="comment">-- Theo giá</span>
+                <span class="keyword">EXEC</span> <span class="function">get_products_by_category</span> <span class="column">@category_id</span> <span class="operator">=</span> <span class="number">1</span>, <span class="column">@order_by</span> <span class="operator">=</span> <span class="string">'list_price'</span>; <span class="comment">-- Với sắp xếp</span>
               </div>
             </div>
 
             <h4>4️⃣ Thủ tục với tham số đầu ra (Output Parameters)</h4>
             <div class="example">
               <div class="code-block">
-                CREATE PROCEDURE get_order_summary @customer_id INT,
-                @total_orders INT OUTPUT, @total_amount DECIMAL(15,2) OUTPUT,
-                @avg_order_value DECIMAL(10,2) OUTPUT, @last_order_date DATE
-                OUTPUT AS BEGIN SELECT @total_orders = COUNT(order_id),
-                @total_amount = COALESCE(SUM(total_amount), 0), @avg_order_value
-                = COALESCE(AVG(total_amount), 0), @last_order_date =
-                MAX(order_date) FROM orders WHERE customer_id = @customer_id AND
-                status = 'completed'; -- Trả về thông tin chi tiết trong result
-                set SELECT c.customer_name, @total_orders AS total_orders,
-                @total_amount AS total_amount, @avg_order_value AS
-                avg_order_value, @last_order_date AS last_order_date, CASE WHEN
-                @total_amount > 10000000 THEN 'VIP' WHEN @total_amount > 5000000
-                THEN 'Premium' WHEN @total_amount > 1000000 THEN 'Gold' ELSE
-                'Regular' END AS customer_tier FROM customers c WHERE
-                c.customer_id = @customer_id; END; -- Cách sử dụng với OUTPUT
-                parameters DECLARE @orders INT, @amount DECIMAL(15,2), @avg
-                DECIMAL(10,2), @last_date DATE; EXEC get_order_summary
-                @customer_id = 1, @total_orders = @orders OUTPUT, @total_amount
-                = @amount OUTPUT, @avg_order_value = @avg OUTPUT,
-                @last_order_date = @last_date OUTPUT; -- Sử dụng các giá trị
-                OUTPUT PRINT 'Tổng đơn hàng: ' + CAST(@orders AS VARCHAR); PRINT
-                'Tổng giá trị: ' + FORMAT(@amount, 'N0'); PRINT 'Giá trị trung
-                bình: ' + FORMAT(@avg, 'N0'); PRINT 'Đơn hàng cuối: ' +
-                CAST(@last_date AS VARCHAR);
+                <span class="keyword"></span>CREATE PROCEDURE</span> <span class="function">get_order_summary</span> 
+                  <span class="column">@customer_id</span> <span class="datatype">INT</span>,
+                  <span class="column">@total_orders</span> <span class="datatype">INT</span> <span class="keyword">OUTPUT</span>,
+                  <span class="column">@total_amount</span> <span class="datatype">DECIMAL</span>(<span class="number">15</span>,<span class="number">2</span>) <span class="keyword">OUTPUT</span>,
+                  <span class="column">@avg_order_value</span> <span class="datatype">DECIMAL</span>(<span class="number">10</span>,<span class="number">2</span>) <span class="keyword">OUTPUT</span>,
+                  <span class="column">@last_order_date</span> <span class="datatype">DATE</span> <span class="keyword">OUTPUT</span>
+                <span class="keyword">AS</span>
+                <span class="keyword">BEGIN</span>
+                  <span class="keyword">SELECT</span> <span class="column">@total_orders</span> <span class="operator">=</span> <span class="function">COUNT</span>(<span class="column">order_id</span>),
+                         <span class="column">@total_amount</span> <span class="operator">=</span> <span class="function">COALESCE</span>(<span class="function">SUM</span>(<span class="column">total_amount</span>), <span class="number">0</span>),
+                         <span class="column">@avg_order_value</span> <span class="operator">=</span> <span class="function">COALESCE</span>(<span class="function">AVG</span>(<span class="column">total_amount</span>), <span class="number">0</span>),
+                         <span class="column">@last_order_date</span> <span class="operator">=</span> <span class="function">MAX</span>(<span class="column">order_date</span>)
+                  <span class="keyword">FROM</span> <span class="table">orders</span> 
+                  <span class="keyword">WHERE</span> <span class="column">customer_id</span> <span class="operator">=</span> <span class="column">@customer_id</span> <span class="keyword">AND</span> <span class="column">status</span> <span class="operator">=</span> <span class="string">'completed'</span>;
+                  
+                  <span class="comment">-- Trả về thông tin chi tiết trong result set</span>
+                  <span class="keyword">SELECT</span> <span class="column">c.customer_name</span>, <span class="column">@total_orders</span> <span class="keyword">AS</span> <span class="column">total_orders</span>,
+                         <span class="column">@total_amount</span> <span class="keyword">AS</span> <span class="column">total_amount</span>, <span class="column">@avg_order_value</span> <span class="keyword">AS</span> <span class="column">avg_order_value</span>,
+                         <span class="column">@last_order_date</span> <span class="keyword">AS</span> <span class="column">last_order_date</span>,
+                         <span class="keyword">CASE</span> 
+                           <span class="keyword">WHEN</span> <span class="column">@total_amount</span> <span class="operator">></span> <span class="number">10000000</span> <span class="keyword">THEN</span> <span class="string">'VIP'</span>
+                           <span class="keyword">WHEN</span> <span class="column">@total_amount</span> <span class="operator">></span> <span class="number">5000000</span> <span class="keyword">THEN</span> <span class="string">'Premium'</span>
+                           <span class="keyword">WHEN</span> <span class="column">@total_amount</span> <span class="operator">></span> <span class="number">1000000</span> <span class="keyword">THEN</span> <span class="string">'Gold'</span>
+                           <span class="keyword">ELSE</span> <span class="string">'Regular'</span>
+                         <span class="keyword">END</span> <span class="keyword">AS</span> <span class="column">customer_tier</span>
+                  <span class="keyword">FROM</span> <span class="table">customers</span> <span class="keyword">c</span> 
+                  <span class="keyword">WHERE</span> <span class="column">c.customer_id</span> <span class="operator">=</span> <span class="column">@customer_id</span>;
+                <span class="keyword">END</span>;
+                
+                <span class="comment">-- Cách sử dụng với OUTPUT parameters</span>
+                <span class="keyword">DECLARE</span> <span class="column">@orders</span> <span class="datatype">INT</span>, <span class="column">@amount</span> <span class="datatype">DECIMAL</span>(<span class="number">15</span>,<span class="number">2</span>), <span class="column">@avg</span> <span class="datatype">DECIMAL</span>(<span class="number">10</span>,<span class="number">2</span>), <span class="column">@last_date</span> <span class="datatype">DATE</span>;
+                
+                <span class="keyword">EXEC</span> <span class="function">get_order_summary</span> 
+                  <span class="column">@customer_id</span> <span class="operator">=</span> <span class="number">1</span>,
+                  <span class="column">@total_orders</span> <span class="operator">=</span> <span class="column">@orders</span> <span class="keyword">OUTPUT</span>,
+                  <span class="column">@total_amount</span> <span class="operator">=</span> <span class="column">@amount</span> <span class="keyword">OUTPUT</span>,
+                  <span class="column">@avg_order_value</span> <span class="operator">=</span> <span class="column">@avg</span> <span class="keyword">OUTPUT</span>,
+                  <span class="column">@last_order_date</span> <span class="operator">=</span> <span class="column">@last_date</span> <span class="keyword">OUTPUT</span>;
+                  
+                <span class="comment">-- Sử dụng các giá trị OUTPUT</span>
+                <span class="keyword">PRINT</span> <span class="string">'Tổng đơn hàng: '</span> <span class="operator">+</span> <span class="function">CAST</span>(<span class="column">@orders</span> <span class="keyword">AS</span> <span class="datatype">VARCHAR</span>);
+                <span class="keyword">PRINT</span> <span class="string">'Tổng giá trị: '</span> <span class="operator">+</span> <span class="function">FORMAT</span>(<span class="column">@amount</span>, <span class="string">'N0'</span>);
+                <span class="keyword">PRINT</span> <span class="string">'Giá trị trung bình: '</span> <span class="operator">+</span> <span class="function">FORMAT</span>(<span class="column">@avg</span>, <span class="string">'N0'</span>);
+                <span class="keyword">PRINT</span> <span class="string">'Đơn hàng cuối: '</span> <span class="operator">+</span> <span class="function">CAST</span>(<span class="column">@last_date</span> <span class="keyword">AS</span> <span class="datatype">VARCHAR</span>);
               </div>
             </div>
 
@@ -8450,11 +8632,19 @@
                 giao dịch, mọi thay đổi sẽ bị hủy bỏ.
               </p>
               <div class="code-block">
-                -- Ví dụ: Chuyển tiền giữa 2 tài khoản BEGIN TRANSACTION; UPDATE
-                accounts SET balance = balance - 1000000 WHERE account_id = 1;
-                -- Trừ tiền tài khoản A UPDATE accounts SET balance = balance +
-                1000000 WHERE account_id = 2; -- Cộng tiền tài khoản B -- Nếu
-                bất kỳ lệnh nào thất bại, cả 2 lệnh đều bị ROLLBACK COMMIT;
+                <span class="comment"></span>-- Ví dụ: Chuyển tiền giữa 2 tài khoản</span>
+                <span class="keyword">BEGIN TRANSACTION</span>;
+                
+                <span class="keyword">UPDATE</span> <span class="table">accounts</span> 
+                <span class="keyword">SET</span> <span class="column">balance</span> <span class="operator">=</span> <span class="column">balance</span> <span class="operator">-</span> <span class="number">1000000</span> 
+                <span class="keyword">WHERE</span> <span class="column">account_id</span> <span class="operator">=</span> <span class="number">1</span>; <span class="comment">-- Trừ tiền tài khoản A</span>
+                
+                <span class="keyword">UPDATE</span> <span class="table">accounts</span> 
+                <span class="keyword">SET</span> <span class="column">balance</span> <span class="operator">=</span> <span class="column">balance</span> <span class="operator">+</span> <span class="number">1000000</span> 
+                <span class="keyword">WHERE</span> <span class="column">account_id</span> <span class="operator">=</span> <span class="number">2</span>; <span class="comment">-- Cộng tiền tài khoản B</span>
+                
+                <span class="comment">-- Nếu bất kỳ lệnh nào thất bại, cả 2 lệnh đều bị ROLLBACK</span>
+                <span class="keyword">COMMIT</span>;
               </div>
             </div>
 
@@ -8465,13 +8655,20 @@
                 sang một trạng thái nhất quán khác.
               </p>
               <div class="code-block">
-                -- Ví dụ: Tổng tiền trong tất cả tài khoản phải không đổi sau
-                khi chuyển tiền -- Trước giao dịch: Account1(5M) + Account2(3M)
-                = 8M BEGIN TRANSACTION; UPDATE accounts SET balance = balance -
-                1000000 WHERE account_id = 1; -- Account1: 4M UPDATE accounts
-                SET balance = balance + 1000000 WHERE account_id = 2; --
-                Account2: 4M COMMIT; -- Sau giao dịch: Account1(4M) +
-                Account2(4M) = 8M (không đổi)
+                <span class="comment">-- Ví dụ: Tổng tiền trong tất cả tài khoản phải không đổi sau khi chuyển tiền</span>
+                <span class="comment">-- Trước giao dịch: Account1(5M) + Account2(3M) = 8M</span>
+                <span class="keyword">BEGIN TRANSACTION</span>;
+                
+                <span class="keyword">UPDATE</span> <span class="table">accounts</span> 
+                <span class="keyword">SET</span> <span class="column">balance</span> <span class="operator">=</span> <span class="column">balance</span> <span class="operator">-</span> <span class="number">1000000</span> 
+                <span class="keyword">WHERE</span> <span class="column">account_id</span> <span class="operator">=</span> <span class="number">1</span>; <span class="comment">-- Account1: 4M</span>
+                
+                <span class="keyword">UPDATE</span> <span class="table">accounts</span> 
+                <span class="keyword">SET</span> <span class="column">balance</span> <span class="operator">=</span> <span class="column">balance</span> <span class="operator">+</span> <span class="number">1000000</span> 
+                <span class="keyword">WHERE</span> <span class="column">account_id</span> <span class="operator">=</span> <span class="number">2</span>; <span class="comment">-- Account2: 4M</span>
+                
+                <span class="keyword">COMMIT</span>;
+                <span class="comment">-- Sau giao dịch: Account1(4M) + Account2(4M) = 8M (không đổi)</span>
               </div>
             </div>
 
@@ -8479,12 +8676,15 @@
               <h4>🔒 Isolation (Tính cô lập):</h4>
               <p>Các giao dịch đồng thời không được can thiệp vào nhau.</p>
               <div class="code-block">
-                -- Transaction 1 và Transaction 2 chạy đồng thời -- Transaction
-                1: BEGIN TRANSACTION; SELECT balance FROM accounts WHERE
-                account_id = 1; -- Đọc balance -- ... làm việc gì đó ... UPDATE
-                accounts SET balance = balance - 500000 WHERE account_id = 1;
-                COMMIT; -- Transaction 2 không thể thấy changes của Transaction
-                1 cho đến khi COMMIT
+                <span class="comment">-- Transaction 1 và Transaction 2 chạy đồng thời</span>
+                <span class="comment">-- Transaction 1:</span>
+                <span class="keyword">BEGIN TRANSACTION</span>;
+                <span class="keyword">SELECT</span> <span class="column">balance</span> <span class="keyword">FROM</span> <span class="table">accounts</span> <span class="keyword">WHERE</span> <span class="column">account_id</span> <span class="operator">=</span> <span class="number">1</span>; <span class="comment">-- Đọc balance</span>
+                <span class="comment">-- ... làm việc gì đó ...</span>
+                <span class="keyword">UPDATE</span> <span class="table">accounts</span> <span class="keyword">SET</span> <span class="column">balance</span> <span class="operator">=</span> <span class="column">balance</span> <span class="operator">-</span> <span class="number">500000</span> <span class="keyword">WHERE</span> <span class="column">account_id</span> <span class="operator">=</span> <span class="number">1</span>;
+                <span class="keyword">COMMIT</span>;
+                
+                <span class="comment">-- Transaction 2 không thể thấy changes của Transaction 1 cho đến khi COMMIT</span>
               </div>
             </div>
 
